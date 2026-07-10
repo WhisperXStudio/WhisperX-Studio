@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'COMPUTE - AI Agents for Distributed Computing',
-  description: 'Deploy autonomous AI agents on distributed infrastructure. Offload complex tasks to intelligent workers that run 24/7.',
+  title: 'WHISPERX | STUDIO',
+  description: 'Premium AI-native creative development environment for design, JSON, skills, preview, export, and install workflows.',
   generator: 'v0.app',
 }
 

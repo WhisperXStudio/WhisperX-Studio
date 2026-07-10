@@ -21,6 +21,7 @@ const actionTypes = {
   DISMISS_TOAST: 'DISMISS_TOAST',
   REMOVE_TOAST: 'REMOVE_TOAST',
 } as const
+Object.freeze(actionTypes)
 
 let count = 0
 
