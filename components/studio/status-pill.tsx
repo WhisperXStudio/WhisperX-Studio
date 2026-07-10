@@ -1,0 +1,3 @@
+import type { Status } from "@/lib/studio-registry";
+const tone: Record<Status, string> = { IMPLEMENTED:"border-emerald-400/40 text-emerald-200", CONNECTED:"border-sky-400/40 text-sky-200", PARTIAL:"border-amber-400/50 text-amber-200", SIMULATED:"border-purple-400/40 text-purple-200", PLACEHOLDER:"border-zinc-400/40 text-zinc-300", PLANNED:"border-blue-400/40 text-blue-200", BLOCKED:"border-red-500/60 text-red-200", UNSUPPORTED:"border-zinc-600 text-zinc-400", DEPRECATED:"border-orange-600 text-orange-200", REMOVED:"border-zinc-700 text-zinc-500" };
+export function StatusPill({ status }: { status: Status }) { return <span className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.18em] ${tone[status]}`}>{status}</span>; }
