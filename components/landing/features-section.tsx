@@ -130,7 +130,6 @@ function ParticleVisualization() {
 
 export function FeaturesSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -183,11 +182,11 @@ export function FeaturesSection() {
         {/* Bento Grid Layout */}
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
           {/* Large feature card */}
-          <div 
+          <div
             className={`lg:col-span-12 relative bg-black border border-foreground/10 min-h-[500px] overflow-hidden group transition-all duration-700 flex ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
-            onMouseEnter={() => setActiveFeature(0)}
+
           >
             {/* Left: text content */}
             <div className="relative flex-1 p-8 lg:p-12 bg-black">

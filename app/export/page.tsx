@@ -1,0 +1,2 @@
+import { getRegistry } from "@/lib/studio-registry";
+export default function ExportPage(){return <main className="min-h-screen px-6 py-10 lg:px-12"><p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">WHISPERX export</p><h1 className="my-10 font-display text-7xl">JSON export preview</h1><pre className="overflow-auto border border-border bg-black/30 p-6 text-xs text-muted-foreground">{JSON.stringify(getRegistry(), null, 2)}</pre></main>}

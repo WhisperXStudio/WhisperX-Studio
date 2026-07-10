@@ -54,7 +54,7 @@ const plans = [
 ];
 
 export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
+  const [isAnnual] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
