@@ -2,9 +2,9 @@ import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Instrument_Sans, Instrument_Serif, Inter_Tight, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { PalmerMotionSystem } from "@/components/system/palmer-motion-system"
 import "./globals.css"
 import "./palmer-system.css"
+import "./palmer-parity.css"
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f3eb" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f1014" },
+    { media: "(prefers-color-scheme: light)", color: "#f8f6f0" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0c0e" },
   ],
   colorScheme: "light dark",
   width: "device-width",
@@ -81,7 +81,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${interTight.variable} ${jetbrainsMono.variable} palmer-root font-sans antialiased`}>
         <a href="#page-content" className="skip-link">Skip to main content</a>
-        <PalmerMotionSystem />
         {children}
         <Analytics />
       </body>
