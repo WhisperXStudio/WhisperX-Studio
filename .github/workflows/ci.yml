@@ -118,4 +118,4 @@ jobs:
             production-render.log
             artifacts/full-html/system-production-polish-v1/production-screenshots/*.png
           if-no-files-found: ignore
-          retention-days: 7
+          retention-days: 90
