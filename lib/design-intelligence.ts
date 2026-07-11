@@ -60,12 +60,16 @@ function findRequired<T extends { id: string }>(items: readonly T[], id: string,
 }
 
 export function recommendDesign(input: DesignIntelligenceInput): DesignRecommendation {
+  const fallbackProfile = intelligence.profiles[0]
+  const fallbackStack = intelligence.stacks[0]
+  if (!fallbackProfile || !fallbackStack) throw new Error("UI UX Pro Max dataset has no profiles or stacks")
+
   const query = [input.brief, input.productType, input.stack].filter(Boolean).join(" ")
   const ranked = intelligence.profiles
     .map((profile) => {
       const result = scoreText(query, profile.keywords, `${profile.id} ${profile.name}`)
       const explicitProduct = input.productType ? normalize(input.productType) : ""
-      const explicitMatch = explicitProduct && [profile.id, profile.name].some((value) => normalize(value).includes(explicitProduct) || explicitProduct.includes(normalize(value)))
+      const explicitMatch = Boolean(explicitProduct) && [profile.id, profile.name].some((value) => normalize(value).includes(explicitProduct) || explicitProduct.includes(normalize(value)))
       return {
         profile,
         score: result.score + (explicitMatch ? 24 : 0),
@@ -75,7 +79,7 @@ export function recommendDesign(input: DesignIntelligenceInput): DesignRecommend
     .sort((a, b) => b.score - a.score)
 
   const winner = ranked[0] ?? {
-    profile: intelligence.profiles[0],
+    profile: fallbackProfile,
     score: 0,
     matched: [] as string[],
   }
@@ -86,7 +90,7 @@ export function recommendDesign(input: DesignIntelligenceInput): DesignRecommend
   const palette = findRequired(intelligence.palettes, profile.paletteId, "palette")
   const typography = findRequired(intelligence.typography, profile.typographyId, "typography")
   const requestedStack = normalize(input.stack ?? "nextjs")
-  const stack = intelligence.stacks.find((entry) => normalize(entry.id) === requestedStack || normalize(entry.name).includes(requestedStack)) ?? intelligence.stacks[0]
+  const stack = intelligence.stacks.find((entry) => normalize(entry.id) === requestedStack || normalize(entry.name).includes(requestedStack)) ?? fallbackStack
   const maximum = Math.max(...ranked.map((entry) => entry.score), 1)
   const confidence = Math.min(0.99, Math.max(0.35, winner.score / (maximum + 4)))
 
