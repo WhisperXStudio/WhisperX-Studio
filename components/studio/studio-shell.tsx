@@ -1,11 +1,12 @@
 import Link from "next/link"
-import { ArrowUpRight, BadgeCheck, Braces, Download, FolderDown, Import, Library, MonitorSmartphone, PackageCheck, Workflow } from "lucide-react"
+import { ArrowUpRight, BadgeCheck, Braces, BrainCircuit, Download, FolderDown, Import, Library, MonitorSmartphone, PackageCheck, Workflow } from "lucide-react"
 import { MarketplaceFooter } from "@/components/marketplace/marketplace-footer"
 import { MarketplaceNav } from "@/components/marketplace/marketplace-nav"
 import { getMarketplaceCatalog } from "@/lib/marketplace"
 import { getDesignSpecSummary } from "@/lib/studio-registry"
 
 const stages = [
+  { name: "Design AI", href: "/design-intelligence", icon: BrainCircuit, status: "CONNECTED" },
   { name: "Import", href: "/import", icon: Import, status: "CONNECTED" },
   { name: "Library", href: "/library", icon: Library, status: "CONNECTED" },
   { name: "Preview", href: "/preview", icon: MonitorSmartphone, status: "CONNECTED" },
@@ -27,7 +28,7 @@ export function StudioShell() {
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[color:var(--signal)]">WHISPERX / SYSTEM STUDIO</p>
             <h1 className="mt-7 max-w-6xl font-display text-[clamp(4.5rem,10vw,9rem)] leading-[0.78] tracking-[-0.06em]">One context.<br /><span className="italic text-[color:var(--signal)]">Every surface.</span></h1>
-            <p className="mt-9 max-w-3xl text-lg leading-relaxed text-foreground/52">A connected control surface for taxonomy, JSON catalog data, imports, previews, exports, user library packages, and safe local project installation.</p>
+            <p className="mt-9 max-w-3xl text-lg leading-relaxed text-foreground/52">A connected control surface for design intelligence, taxonomy, JSON catalog data, imports, previews, exports, user library packages, and safe local project installation.</p>
           </div>
           <div className="grid gap-px bg-black/10 sm:grid-cols-2">
             {[
@@ -92,11 +93,14 @@ export function StudioShell() {
                 <div className="mt-7 flex flex-wrap gap-2">
                   {designSpec.target.map((target) => <span key={target} className="border border-black/10 bg-white/60 px-2.5 py-2 font-mono text-[8px] uppercase tracking-[0.12em] text-foreground/42">{target}</span>)}
                 </div>
+                <Link href="/design-intelligence" className="mt-7 inline-flex items-center gap-2 border border-black/10 bg-white px-4 py-3 font-mono text-[8px] uppercase tracking-[0.14em] text-foreground/55 transition hover:border-[color:var(--signal)] hover:text-[color:var(--signal)]">Open design intelligence <ArrowUpRight className="size-3.5" /></Link>
               </div>
               <div className="min-w-0 border border-black/10 bg-white p-6 sm:p-8">
                 <div className="flex items-center justify-between gap-4"><p className="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/38">System status</p><PackageCheck className="size-4 text-[color:var(--signal)]" /></div>
                 <div className="mt-6 divide-y divide-black/10">
                   {[
+                    ["UI UX Pro Max agent skill", "CONNECTED", "Pinned Codex skill with MIT attribution and local operating instructions."],
+                    ["Design intelligence runtime", "CONNECTED", "Local recommendation dataset, typed engine, API, and interactive workbench."],
                     ["Native marketplace catalog", "CONNECTED", "Validated at import time through Zod."],
                     ["File and paste import", "CONNECTED", "Browser-local normalization and storage."],
                     ["Public URL import", "CONNECTED", "Guarded server fetch with protocol, host, type, size, and timeout controls."],
