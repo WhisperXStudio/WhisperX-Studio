@@ -71,6 +71,12 @@ jobs:
           set -o pipefail
           pnpm validate:design-intelligence 2>&1 | tee design-intelligence.log
 
+      - name: Validate system-wide UI UX
+        shell: bash
+        run: |
+          set -o pipefail
+          pnpm validate:ui-system 2>&1 | tee ui-system.log
+
       - name: Production build
         shell: bash
         run: |
@@ -91,6 +97,7 @@ jobs:
             marketplace.log
             design-lock.log
             design-intelligence.log
+            ui-system.log
             build.log
           if-no-files-found: ignore
           retention-days: 7
