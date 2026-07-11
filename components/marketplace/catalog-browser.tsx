@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useDeferredValue, useMemo, useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { ArrowUpRight, Grid2X2, ListFilter, RotateCcw, Search, SlidersHorizontal, Star } from "lucide-react"
 import type { MarketplaceItem, MarketplaceTaxonomyNode } from "@/types/marketplace"
 import { formatMarketplacePrice } from "@/lib/marketplace"
@@ -11,49 +12,79 @@ type PriceMode = "all" | "free" | "paid"
 
 function ProductTile({ item, index }: { item: MarketplaceItem; index: number }) {
   const wide = index % 7 === 0 || index % 7 === 3
+  const reduce = useReducedMotion()
 
   return (
-    <Link
-      href={`/marketplace/${item.slug}`}
-      className={`group relative min-h-[430px] overflow-hidden border border-black/10 bg-[color:var(--surface-raised)] p-5 transition duration-300 hover:border-[color:var(--signal)] focus-visible:border-[color:var(--signal)] sm:p-7 ${wide ? "md:col-span-2" : ""}`}
-      aria-label={`Open ${item.name}, ${formatMarketplacePrice(item)}, rated ${item.rating.toFixed(1)}`}
+    <motion.article
+      layout
+      initial={reduce ? false : { opacity: 0, y: 28, scale: 0.985 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={reduce ? undefined : { opacity: 0, y: -18, scale: 0.985 }}
+      transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
+      className={wide ? "md:col-span-2" : ""}
     >
-      <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 group-focus-visible:opacity-100" style={{ background: `radial-gradient(circle at 80% 20%, ${item.preview.accent}1f, transparent 44%)` }} aria-hidden="true" />
-      <div className="relative z-10 flex h-full flex-col">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="ui-eyebrow text-foreground/42">{item.categoryId} / {item.subcategoryId}</p>
-            <div className="mt-3 flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/58">
-              <span className="size-1.5 bg-[color:var(--signal)]" aria-hidden="true" />
-              {item.status}
-            </div>
-          </div>
-          <span className="font-mono text-sm font-medium tabular-nums text-foreground/78">{formatMarketplacePrice(item)}</span>
-        </div>
+      <Link
+        href={`/marketplace/${item.slug}`}
+        className="group relative block min-h-[440px] overflow-hidden border border-black/10 bg-[color:var(--surface-raised)] p-5 transition duration-300 hover:border-[color:var(--signal)] focus-visible:border-[color:var(--signal)] sm:p-7"
+        aria-label={`Open ${item.name}, ${formatMarketplacePrice(item)}, rated ${item.rating.toFixed(1)}`}
+      >
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
+          style={{ background: `radial-gradient(circle at 80% 20%, ${item.preview.accent}28, transparent 45%)` }}
+          transition={{ duration: 0.45 }}
+          aria-hidden="true"
+        />
 
-        <div className="my-9 flex min-h-[170px] flex-1 items-end border border-black/8 p-5 text-white transition group-hover:border-black/15" style={{ background: item.preview.background }}>
-          <div>
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em]" style={{ color: item.preview.accent }}>{item.preview.eyebrow}</p>
-            <p className={`mt-5 max-w-2xl font-display leading-[0.9] tracking-[-0.035em] ${wide ? "text-5xl sm:text-6xl" : "text-4xl"}`}>{item.preview.title}</p>
-          </div>
-        </div>
-
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <h3 className="font-display text-3xl leading-none tracking-tight">{item.name}</h3>
-            <p className="mt-3 line-clamp-2 max-w-xl text-sm leading-relaxed text-foreground/58">{item.summary}</p>
-            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-foreground/45">
-              <span className="flex items-center gap-1.5"><Star className="size-3.5 fill-current text-[color:var(--signal)]" aria-hidden="true" /> {item.rating.toFixed(1)}</span>
-              <span className="tabular-nums">{item.downloads.toLocaleString()} installs</span>
-              <span>{item.pricing.license}</span>
+        <div className="relative z-10 flex h-full flex-col">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="ui-eyebrow text-foreground/42">{item.categoryId} / {item.subcategoryId}</p>
+              <div className="mt-3 flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/58">
+                <span className="size-1.5 bg-[color:var(--signal)]" aria-hidden="true" />
+                {item.status}
+              </div>
             </div>
+            <span className="font-mono text-sm font-medium tabular-nums text-foreground/78">{formatMarketplacePrice(item)}</span>
           </div>
-          <span className="grid size-11 shrink-0 place-items-center border border-black/10 text-foreground/55 transition group-hover:border-[color:var(--signal)] group-hover:bg-[color:var(--signal)] group-hover:text-white group-focus-visible:border-[color:var(--signal)] group-focus-visible:bg-[color:var(--signal)] group-focus-visible:text-white" aria-hidden="true">
-            <ArrowUpRight className="size-4" />
-          </span>
+
+          <motion.div
+            className="my-9 flex min-h-[190px] flex-1 items-end overflow-hidden border border-black/8 p-5 text-white"
+            style={{ background: item.preview.background }}
+            whileHover={reduce ? undefined : { scale: 0.988 }}
+            transition={{ type: "spring", stiffness: 190, damping: 24 }}
+          >
+            <motion.div
+              initial={reduce ? false : { y: 18, opacity: 0.7 }}
+              whileInView={reduce ? undefined : { y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em]" style={{ color: item.preview.accent }}>{item.preview.eyebrow}</p>
+              <p className={`mt-5 max-w-2xl font-display leading-[0.88] tracking-[-0.045em] ${wide ? "text-5xl sm:text-7xl" : "text-4xl sm:text-5xl"}`}>{item.preview.title}</p>
+            </motion.div>
+          </motion.div>
+
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <h3 className="font-display text-3xl leading-none tracking-tight sm:text-4xl">{item.name}</h3>
+              <p className="mt-3 line-clamp-2 max-w-xl text-sm leading-relaxed text-foreground/58">{item.summary}</p>
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-foreground/45">
+                <span className="flex items-center gap-1.5"><Star className="size-3.5 fill-current text-[color:var(--signal)]" aria-hidden="true" /> {item.rating.toFixed(1)}</span>
+                <span className="tabular-nums">{item.downloads.toLocaleString()} installs</span>
+                <span>{item.pricing.license}</span>
+              </div>
+            </div>
+            <motion.span
+              className="grid size-11 shrink-0 place-items-center border border-black/10 text-foreground/55 group-hover:border-[color:var(--signal)] group-hover:bg-[color:var(--signal)] group-hover:text-white group-focus-visible:border-[color:var(--signal)] group-focus-visible:bg-[color:var(--signal)] group-focus-visible:text-white"
+              whileHover={reduce ? undefined : { rotate: 8, scale: 1.05 }}
+              aria-hidden="true"
+            >
+              <ArrowUpRight className="size-4" />
+            </motion.span>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.article>
   )
 }
 
@@ -170,7 +201,7 @@ export function CatalogBrowser({ items, categories }: { items: MarketplaceItem[]
             <div className="flex flex-col gap-5 border-b border-black/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="ui-eyebrow text-[color:var(--signal)]">Digital systems market</p>
-                <h2 className="mt-4 font-display text-5xl tracking-tight sm:text-6xl">Build from verified parts.</h2>
+                <h2 className="mt-4 font-display text-5xl tracking-tight sm:text-7xl">Build from verified parts.</h2>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/55">Marketing systems, galleries, components, design kits, skills, and agent workflows with inspectable JSON, preview, export, and safe install paths.</p>
               </div>
               <div className="flex flex-wrap items-end gap-3">
@@ -193,18 +224,18 @@ export function CatalogBrowser({ items, categories }: { items: MarketplaceItem[]
             </div>
 
             {filteredItems.length ? (
-              <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                {filteredItems.map((item, index) => <ProductTile key={item.id} item={item} index={index} />)}
-              </div>
+              <motion.div layout className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <AnimatePresence mode="popLayout">
+                  {filteredItems.map((item, index) => <ProductTile key={item.id} item={item} index={index} />)}
+                </AnimatePresence>
+              </motion.div>
             ) : (
-              <div className="mt-6 flex min-h-[420px] flex-col items-center justify-center border border-dashed border-black/15 bg-[color:var(--paper-warm)] px-6 text-center" role="status">
-                <div className="grid size-14 place-items-center border border-[color:var(--signal)] text-[color:var(--signal)]"><Search className="size-5" aria-hidden="true" /></div>
-                <h3 className="mt-7 font-display text-4xl">No matching systems.</h3>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-foreground/55">Clear a filter or import your own file or URL to create a local marketplace package.</p>
-                <button type="button" onClick={resetFilters} className="ui-action mt-7 border border-black/10 bg-[color:var(--surface-raised)] text-foreground hover:border-[color:var(--signal)] hover:text-[color:var(--signal)]">
-                  <RotateCcw className="size-3.5" aria-hidden="true" /> Reset filters
-                </button>
-              </div>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 flex min-h-[420px] flex-col items-center justify-center border border-dashed border-black/15 bg-[color:var(--paper-warm)] px-6 text-center">
+                <Search className="size-8 text-[color:var(--signal)]" aria-hidden="true" />
+                <h3 className="mt-6 font-display text-5xl">Nothing matches this view.</h3>
+                <p className="mt-4 max-w-lg text-sm leading-relaxed text-foreground/50">Reset the filters or import a source to add a browser-local marketplace record.</p>
+                <button type="button" onClick={resetFilters} className="palmer-button palmer-button-solid mt-7">Reset filters <RotateCcw className="size-4" aria-hidden="true" /></button>
+              </motion.div>
             )}
           </div>
         </div>
