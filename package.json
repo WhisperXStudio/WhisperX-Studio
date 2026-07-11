@@ -13,7 +13,8 @@
     "validate:design-lock": "node scripts/validate-design-lock.mjs",
     "validate:design-intelligence": "node scripts/validate-design-intelligence.mjs",
     "validate:ui-system": "node scripts/validate-ui-system.mjs",
-    "validate": "pnpm typecheck && pnpm lint && pnpm validate:registry && pnpm validate:marketplace && pnpm validate:design-lock && pnpm validate:design-intelligence && pnpm validate:ui-system",
+    "validate:production-polish": "node scripts/validate-production-polish.mjs",
+    "validate": "pnpm typecheck && pnpm lint && pnpm validate:registry && pnpm validate:marketplace && pnpm validate:design-lock && pnpm validate:design-intelligence && pnpm validate:ui-system && pnpm validate:production-polish",
     "ci": "pnpm validate && pnpm build"
   },
   "dependencies": {
