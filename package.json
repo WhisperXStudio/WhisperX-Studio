@@ -1,6 +1,6 @@
 {
   "name": "whisperx-studio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,8 +9,10 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "validate:registry": "node scripts/validate-registry.mjs",
+    "validate:marketplace": "node scripts/validate-marketplace.mjs",
     "validate:design-lock": "node scripts/validate-design-lock.mjs",
-    "validate": "pnpm typecheck && pnpm lint && pnpm validate:registry && pnpm validate:design-lock"
+    "validate": "pnpm typecheck && pnpm lint && pnpm validate:registry && pnpm validate:marketplace && pnpm validate:design-lock",
+    "ci": "pnpm validate && pnpm build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

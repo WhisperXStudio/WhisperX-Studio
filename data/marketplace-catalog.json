@@ -1,0 +1,486 @@
+{
+  "schemaVersion": "2.0.0",
+  "generatedAt": "2026-07-11T00:00:00.000Z",
+  "categories": [
+    {
+      "id": "marketing",
+      "slug": "marketing",
+      "name": "Marketing Systems",
+      "description": "Campaign, launch, conversion, pricing, and social-proof systems.",
+      "icon": "Megaphone",
+      "subcategories": [
+        { "id": "hero", "slug": "hero", "name": "Hero", "description": "High-impact opening compositions." },
+        { "id": "launch", "slug": "launch", "name": "Launch", "description": "Product and campaign launch systems." },
+        { "id": "pricing", "slug": "pricing", "name": "Pricing", "description": "Offer, plan, and value presentation." },
+        { "id": "social-proof", "slug": "social-proof", "name": "Social Proof", "description": "Reviews, trust, and validation patterns." }
+      ]
+    },
+    {
+      "id": "gallery",
+      "slug": "gallery",
+      "name": "Gallery & Visual",
+      "description": "Editorial galleries, spatial showcases, and visual stories.",
+      "icon": "Images",
+      "subcategories": [
+        { "id": "editorial", "slug": "editorial", "name": "Editorial", "description": "Asymmetrical editorial presentation." },
+        { "id": "motion-gallery", "slug": "motion-gallery", "name": "Motion Gallery", "description": "Animated visual sequences." },
+        { "id": "spatial", "slug": "spatial", "name": "Spatial", "description": "Layered and immersive compositions." }
+      ]
+    },
+    {
+      "id": "components",
+      "slug": "components",
+      "name": "Components",
+      "description": "Production-ready interface and commerce components.",
+      "icon": "Blocks",
+      "subcategories": [
+        { "id": "navigation", "slug": "navigation", "name": "Navigation", "description": "Navigation and command surfaces." },
+        { "id": "commerce", "slug": "commerce", "name": "Commerce", "description": "Catalog, product, install, and purchase flows." },
+        { "id": "data", "slug": "data", "name": "Data", "description": "JSON-driven data and inspection surfaces." }
+      ]
+    },
+    {
+      "id": "templates",
+      "slug": "templates",
+      "name": "Templates",
+      "description": "Complete page and product experience templates.",
+      "icon": "LayoutTemplate",
+      "subcategories": [
+        { "id": "landing", "slug": "landing", "name": "Landing", "description": "Complete conversion landing pages." },
+        { "id": "marketplace", "slug": "marketplace", "name": "Marketplace", "description": "Marketplace list and detail systems." },
+        { "id": "portfolio", "slug": "portfolio", "name": "Portfolio", "description": "Creative and technical portfolio systems." }
+      ]
+    },
+    {
+      "id": "design",
+      "slug": "design",
+      "name": "Design Systems",
+      "description": "Tokens, themes, typography, surfaces, and motion rules.",
+      "icon": "Palette",
+      "subcategories": [
+        { "id": "tokens", "slug": "tokens", "name": "Tokens", "description": "Color, type, space, and depth tokens." },
+        { "id": "themes", "slug": "themes", "name": "Themes", "description": "Dark and light theme systems." },
+        { "id": "typography", "slug": "typography", "name": "Typography", "description": "Editorial and technical type systems." }
+      ]
+    },
+    {
+      "id": "automation",
+      "slug": "automation",
+      "name": "Skills & Agents",
+      "description": "Build skills, agent workflows, validation, and release systems.",
+      "icon": "Workflow",
+      "subcategories": [
+        { "id": "skills", "slug": "skills", "name": "Skills", "description": "Reusable build and review skills." },
+        { "id": "agents", "slug": "agents", "name": "Agents", "description": "Agent roles and execution flows." },
+        { "id": "workflows", "slug": "workflows", "name": "Workflows", "description": "Build, validate, export, and release pipelines." }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "wpx-cinematic-launch-hero",
+      "slug": "cinematic-launch-hero",
+      "name": "Cinematic Launch Hero",
+      "summary": "Editorial launch hero with controlled motion, product context, and a decisive conversion path.",
+      "description": "A complete opening system for premium product launches. It combines asymmetrical typography, a technical metadata rail, product proof, and a responsive call-to-action composition without falling into a generic centered hero.",
+      "type": "marketing",
+      "status": "PUBLISHED",
+      "categoryId": "marketing",
+      "subcategoryId": "hero",
+      "tags": ["hero", "launch", "editorial", "responsive", "motion"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 0, "currency": "USD", "license": "FREE" },
+      "rating": 4.9,
+      "reviews": 148,
+      "downloads": 12840,
+      "featured": true,
+      "createdAt": "2026-06-14T00:00:00.000Z",
+      "updatedAt": "2026-07-11T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19", "tailwind@4"],
+      "dependencies": ["lucide-react"],
+      "capabilities": ["responsive-hero", "product-proof", "conversion-cta", "reduced-motion"],
+      "preview": {
+        "kind": "hero",
+        "title": "Ship the system, not another screen.",
+        "eyebrow": "WPX / RELEASE 07",
+        "description": "A complete creative commerce surface from source to install.",
+        "accent": "#ef4444",
+        "background": "#08090c",
+        "highlights": ["JSON-driven", "Install-ready", "Production-polished"]
+      },
+      "files": [
+        {
+          "path": "components/marketing/cinematic-launch-hero.tsx",
+          "language": "tsx",
+          "content": "export function CinematicLaunchHero() {\n  return (\n    <section className=\"relative min-h-[80vh] overflow-hidden border-b border-white/10 bg-[#08090c] px-6 py-20 text-white lg:px-14\">\n      <p className=\"font-mono text-xs uppercase tracking-[0.32em] text-red-400\">WPX / Launch System</p>\n      <div className=\"mt-16 grid gap-12 lg:grid-cols-[1.25fr_.75fr]\">\n        <h1 className=\"max-w-5xl font-display text-6xl leading-[.88] md:text-8xl lg:text-[9rem]\">Ship the system, not another screen.</h1>\n        <div className=\"self-end border-l border-white/15 pl-6\">\n          <p className=\"text-lg text-white/60\">JSON-driven commerce components with preview, export, and safe install workflows.</p>\n          <a href=\"/marketplace\" className=\"mt-8 inline-flex border border-red-500 px-5 py-3 font-mono text-xs uppercase tracking-[.2em] text-red-300\">Explore market</a>\n        </div>\n      </div>\n    </section>\n  )\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-editorial-product-grid",
+      "slug": "editorial-product-grid",
+      "name": "Editorial Product Grid",
+      "summary": "A responsive catalog browser with search, category filters, pricing, sorting, and expressive list geometry.",
+      "description": "A marketplace browsing surface designed for dense technical products and visual assets. It supports category and subcategory filtering, free and paid products, sorting, metadata, and responsive layouts while avoiding repetitive equal-card composition.",
+      "type": "component",
+      "status": "PUBLISHED",
+      "categoryId": "components",
+      "subcategoryId": "commerce",
+      "tags": ["catalog", "search", "filter", "commerce", "list"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 19, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.8,
+      "reviews": 91,
+      "downloads": 8620,
+      "featured": true,
+      "createdAt": "2026-05-20T00:00:00.000Z",
+      "updatedAt": "2026-07-11T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19", "tailwind@4"],
+      "dependencies": ["lucide-react"],
+      "capabilities": ["search", "filter", "sort", "responsive-list", "empty-state"],
+      "preview": {
+        "kind": "gallery",
+        "title": "Browse by intent.",
+        "eyebrow": "CATALOG / 128 ITEMS",
+        "description": "Product discovery with a technical filter rail and editorial result field.",
+        "accent": "#f3f4f6",
+        "background": "#111317",
+        "highlights": ["Search", "Taxonomy", "Sort"]
+      },
+      "files": [
+        {
+          "path": "components/marketplace/editorial-product-grid.tsx",
+          "language": "tsx",
+          "content": "\"use client\"\n\nexport function EditorialProductGrid() {\n  return <div className=\"grid gap-px bg-white/10 lg:grid-cols-3\"><article className=\"bg-background p-8 lg:col-span-2\">Editorial product surface</article><aside className=\"bg-background p-8\">Filter rail</aside></div>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-spatial-gallery-system",
+      "slug": "spatial-gallery-system",
+      "name": "Spatial Gallery System",
+      "summary": "Layered visual gallery with controlled depth, variable crops, keyboard navigation, and mobile fallbacks.",
+      "description": "A visual showcase system for design modules, campaigns, and spatial objects. It prioritizes one dominant object, controlled supporting content, and readable metadata rather than a generic image grid.",
+      "type": "gallery",
+      "status": "PUBLISHED",
+      "categoryId": "gallery",
+      "subcategoryId": "spatial",
+      "tags": ["gallery", "spatial", "keyboard", "responsive", "visual"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 29, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.9,
+      "reviews": 67,
+      "downloads": 5140,
+      "featured": true,
+      "createdAt": "2026-04-12T00:00:00.000Z",
+      "updatedAt": "2026-07-08T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19", "tailwind@4"],
+      "dependencies": [],
+      "capabilities": ["spatial-layout", "keyboard-navigation", "mobile-fallback", "reduced-motion"],
+      "preview": {
+        "kind": "gallery",
+        "title": "Objects with purpose.",
+        "eyebrow": "GALLERY / SPATIAL",
+        "description": "Large and small fields arranged with controlled negative space.",
+        "accent": "#fb7185",
+        "background": "#090a0d",
+        "highlights": ["Variable crop", "Focus states", "Touch-safe"]
+      },
+      "files": [
+        {
+          "path": "components/gallery/spatial-gallery.tsx",
+          "language": "tsx",
+          "content": "export function SpatialGallery() {\n  return <section className=\"grid min-h-[640px] grid-cols-12 gap-3\"><div className=\"col-span-8 row-span-2 bg-zinc-900\"/><div className=\"col-span-4 bg-red-950/30\"/><div className=\"col-span-4 border border-white/10\"/></section>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-marketplace-detail-system",
+      "slug": "marketplace-detail-system",
+      "name": "Marketplace Detail System",
+      "summary": "Complete product detail flow with preview, code files, dependencies, license, export, add, and install actions.",
+      "description": "A production-oriented detail page for digital goods. It combines product narrative, live visual preview, technical metadata, compatibility, file manifest, export, and safe installation planning.",
+      "type": "template",
+      "status": "PUBLISHED",
+      "categoryId": "templates",
+      "subcategoryId": "marketplace",
+      "tags": ["detail", "preview", "export", "install", "dependencies"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 39, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.9,
+      "reviews": 123,
+      "downloads": 9340,
+      "featured": true,
+      "createdAt": "2026-03-30T00:00:00.000Z",
+      "updatedAt": "2026-07-10T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19", "tailwind@4"],
+      "dependencies": ["lucide-react"],
+      "capabilities": ["product-detail", "file-manifest", "export-json", "filesystem-install"],
+      "preview": {
+        "kind": "component",
+        "title": "Inspect before install.",
+        "eyebrow": "DETAIL / SAFE WRITE",
+        "description": "Every dependency, file, and target path remains visible before installation.",
+        "accent": "#ef4444",
+        "background": "#0c0d11",
+        "highlights": ["Manifest", "Dependencies", "Rollback notes"]
+      },
+      "files": [
+        {
+          "path": "components/marketplace/product-detail.tsx",
+          "language": "tsx",
+          "content": "export function ProductDetail() {\n  return <main className=\"grid gap-8 lg:grid-cols-[1.35fr_.65fr]\"><section>Preview and files</section><aside>Install manifest</aside></main>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-red-signal-design-kit",
+      "slug": "red-signal-design-kit",
+      "name": "Red Signal Design Kit",
+      "summary": "A dark and light token set using restrained red for focus, validation, progress, and execution states.",
+      "description": "A focused design system package with layered dark surfaces, warm light surfaces, editorial typography, compact technical labels, controlled red signals, and accessible state mapping.",
+      "type": "design-system",
+      "status": "PUBLISHED",
+      "categoryId": "design",
+      "subcategoryId": "tokens",
+      "tags": ["tokens", "theme", "dark", "light", "red-signal"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 0, "currency": "USD", "license": "FREE" },
+      "rating": 4.7,
+      "reviews": 74,
+      "downloads": 15390,
+      "featured": false,
+      "createdAt": "2026-05-01T00:00:00.000Z",
+      "updatedAt": "2026-07-09T00:00:00.000Z",
+      "compatibility": ["tailwind@4", "css-variables"],
+      "dependencies": [],
+      "capabilities": ["dark-theme", "light-theme", "status-colors", "accessible-focus"],
+      "preview": {
+        "kind": "design-system",
+        "title": "Red means action.",
+        "eyebrow": "TOKENS / SIGNAL",
+        "description": "A controlled accent system for important states rather than decoration.",
+        "accent": "#ef4444",
+        "background": "#0a0b0e",
+        "highlights": ["Dark / Light", "Focus", "State mapping"]
+      },
+      "files": [
+        {
+          "path": "styles/wpx-signal-tokens.css",
+          "language": "css",
+          "content": ":root {\n  --wpx-background: #08090c;\n  --wpx-surface: #101217;\n  --wpx-foreground: #f2efe8;\n  --wpx-muted: #9a9ba2;\n  --wpx-signal: #ef4444;\n  --wpx-border: rgba(255,255,255,.12);\n}\n"
+        },
+        {
+          "path": "data/wpx-signal-tokens.json",
+          "language": "json",
+          "content": "{\n  \"background\": \"#08090c\",\n  \"surface\": \"#101217\",\n  \"foreground\": \"#f2efe8\",\n  \"signal\": \"#ef4444\"\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-motion-storyboard",
+      "slug": "motion-storyboard",
+      "name": "Motion Storyboard",
+      "summary": "Purposeful route, panel, reveal, and reduced-motion presets for editorial product experiences.",
+      "description": "A motion preset collection for route transitions, masked labels, active-state movement, preview changes, and reduced-motion fallbacks. It avoids permanent loops and decorative movement.",
+      "type": "motion",
+      "status": "PUBLISHED",
+      "categoryId": "gallery",
+      "subcategoryId": "motion-gallery",
+      "tags": ["motion", "transition", "reduced-motion", "preview"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 15, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.6,
+      "reviews": 39,
+      "downloads": 4210,
+      "featured": false,
+      "createdAt": "2026-05-18T00:00:00.000Z",
+      "updatedAt": "2026-07-07T00:00:00.000Z",
+      "compatibility": ["css", "react@19"],
+      "dependencies": [],
+      "capabilities": ["route-transition", "mask-reveal", "reduced-motion", "interruptible-motion"],
+      "preview": {
+        "kind": "motion",
+        "title": "Move with reason.",
+        "eyebrow": "MOTION / 240MS",
+        "description": "Transitions communicate state and spatial continuity without delaying work.",
+        "accent": "#fca5a5",
+        "background": "#111216",
+        "highlights": ["Interruptible", "Reduced motion", "State-aware"]
+      },
+      "files": [
+        {
+          "path": "styles/wpx-motion.css",
+          "language": "css",
+          "content": ".wpx-reveal { animation: wpx-reveal 240ms cubic-bezier(.22,1,.36,1) both; }\n@keyframes wpx-reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }\n@media (prefers-reduced-motion: reduce) { .wpx-reveal { animation: none; } }\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-import-workbench",
+      "slug": "import-workbench",
+      "name": "Import Workbench",
+      "summary": "File, paste, and URL ingestion with normalization, validation, conflict notes, and local library storage.",
+      "description": "A complete browser-side import workflow for JSON, HTML, CSS, JavaScript, TypeScript, Markdown, and text files. URL ingestion is proxied through a guarded server route with protocol, host, size, timeout, and content-type checks.",
+      "type": "component",
+      "status": "PUBLISHED",
+      "categoryId": "components",
+      "subcategoryId": "data",
+      "tags": ["import", "url", "file", "json", "validation"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 24, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.8,
+      "reviews": 58,
+      "downloads": 6020,
+      "featured": true,
+      "createdAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-07-11T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19"],
+      "dependencies": ["zod"],
+      "capabilities": ["file-import", "url-import", "paste-import", "normalize", "local-library"],
+      "preview": {
+        "kind": "dashboard",
+        "title": "Bring systems in.",
+        "eyebrow": "IMPORT / VALIDATE",
+        "description": "Inspect source, normalized metadata, warnings, and generated files before saving.",
+        "accent": "#ef4444",
+        "background": "#0a0b0f",
+        "highlights": ["File", "URL", "Paste"]
+      },
+      "files": [
+        {
+          "path": "components/marketplace/import-workbench.tsx",
+          "language": "tsx",
+          "content": "\"use client\"\n\nexport function ImportWorkbench() {\n  return <section className=\"grid gap-6 lg:grid-cols-[.7fr_1.3fr]\"><aside>Source controls</aside><div>Normalized preview</div></section>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-agent-release-console",
+      "slug": "agent-release-console",
+      "name": "Agent Release Console",
+      "summary": "A technical execution surface for plan, changes, validation, build, release evidence, and capability truth.",
+      "description": "An agent workflow surface that distinguishes request, plan, proposed changes, commands, tool results, validation, warnings, errors, and approvals without consumer chat bubbles or fake live states.",
+      "type": "agent",
+      "status": "PUBLISHED",
+      "categoryId": "automation",
+      "subcategoryId": "agents",
+      "tags": ["agent", "release", "validation", "workflow", "status"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 49, "currency": "USD", "license": "ENTERPRISE" },
+      "rating": 4.9,
+      "reviews": 46,
+      "downloads": 2870,
+      "featured": false,
+      "createdAt": "2026-04-24T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19"],
+      "dependencies": [],
+      "capabilities": ["execution-timeline", "validation-matrix", "approval-surface", "honest-status"],
+      "preview": {
+        "kind": "dashboard",
+        "title": "Evidence before release.",
+        "eyebrow": "AGENT / RELEASE GATE",
+        "description": "Plans, diffs, build evidence, and blockers remain distinct and inspectable.",
+        "accent": "#f87171",
+        "background": "#090a0d",
+        "highlights": ["Plan", "Validate", "Release"]
+      },
+      "files": [
+        {
+          "path": "components/agents/release-console.tsx",
+          "language": "tsx",
+          "content": "export function ReleaseConsole() {\n  return <section className=\"grid gap-px bg-white/10 md:grid-cols-4\"><div className=\"bg-background p-6\">Plan</div><div className=\"bg-background p-6\">Changes</div><div className=\"bg-background p-6\">Validation</div><div className=\"bg-background p-6\">Release</div></section>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-pricing-narrative",
+      "slug": "pricing-narrative",
+      "name": "Pricing Narrative",
+      "summary": "A value-led pricing system with comparison logic, licensing, usage boundaries, and focused conversion actions.",
+      "description": "Pricing built as a narrative rather than three identical cards. The system highlights fit, capability boundaries, support, licensing, and next action with clear hierarchy and accessible comparison.",
+      "type": "marketing",
+      "status": "PUBLISHED",
+      "categoryId": "marketing",
+      "subcategoryId": "pricing",
+      "tags": ["pricing", "license", "comparison", "conversion"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 18, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.6,
+      "reviews": 31,
+      "downloads": 3450,
+      "featured": false,
+      "createdAt": "2026-05-11T00:00:00.000Z",
+      "updatedAt": "2026-07-02T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19", "tailwind@4"],
+      "dependencies": [],
+      "capabilities": ["pricing", "comparison", "licensing", "responsive"],
+      "preview": {
+        "kind": "section",
+        "title": "Choose by operating model.",
+        "eyebrow": "PRICING / LICENSE",
+        "description": "Free, commercial, and enterprise paths arranged by real usage needs.",
+        "accent": "#fecaca",
+        "background": "#121318",
+        "highlights": ["Free", "Commercial", "Enterprise"]
+      },
+      "files": [
+        {
+          "path": "components/marketing/pricing-narrative.tsx",
+          "language": "tsx",
+          "content": "export function PricingNarrative() {\n  return <section className=\"grid gap-8 border-y border-white/10 py-16 lg:grid-cols-[.8fr_1.2fr]\"><h2 className=\"font-display text-6xl\">Choose by operating model.</h2><div className=\"divide-y divide-white/10\">Free / Commercial / Enterprise</div></section>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    },
+    {
+      "id": "wpx-creator-profile-system",
+      "slug": "creator-profile-system",
+      "name": "Creator Profile System",
+      "summary": "Verified creator identity, products, collections, licenses, usage, updates, and support context.",
+      "description": "A compact creator profile for a technical marketplace. It provides trust signals, portfolio context, update history, product collections, licensing, and support without social-network clutter.",
+      "type": "component",
+      "status": "PUBLISHED",
+      "categoryId": "components",
+      "subcategoryId": "commerce",
+      "tags": ["creator", "profile", "verified", "collection", "support"],
+      "author": { "name": "WhisperX Studio", "handle": "@wpx", "verified": true },
+      "pricing": { "amount": 12, "currency": "USD", "license": "COMMERCIAL" },
+      "rating": 4.5,
+      "reviews": 22,
+      "downloads": 2100,
+      "featured": false,
+      "createdAt": "2026-06-22T00:00:00.000Z",
+      "updatedAt": "2026-07-05T00:00:00.000Z",
+      "compatibility": ["next@16", "react@19", "tailwind@4"],
+      "dependencies": [],
+      "capabilities": ["creator-profile", "trust-signals", "collections", "support-context"],
+      "preview": {
+        "kind": "component",
+        "title": "Built by verified systems people.",
+        "eyebrow": "CREATOR / VERIFIED",
+        "description": "Identity, work, updates, and licensing in one compact technical surface.",
+        "accent": "#ef4444",
+        "background": "#0c0d10",
+        "highlights": ["Verified", "Collections", "Support"]
+      },
+      "files": [
+        {
+          "path": "components/marketplace/creator-profile.tsx",
+          "language": "tsx",
+          "content": "export function CreatorProfile() {\n  return <aside className=\"border border-white/10 p-6\"><p className=\"font-mono text-xs uppercase tracking-[.2em] text-red-400\">Verified creator</p><h3 className=\"mt-8 font-display text-4xl\">WhisperX Studio</h3></aside>\n}\n"
+        }
+      ],
+      "source": { "kind": "native", "value": "data/marketplace-catalog.json" }
+    }
+  ]
+}
