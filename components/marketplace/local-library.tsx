@@ -43,7 +43,11 @@ export function LocalLibrary({ nativeItems }: { nativeItems: MarketplaceItem[] }
   const entries = useMemo(() => {
     const native = nativeItems.map((item) => ({ item, source: "native" as const }))
     const local = localItems.map((item) => ({ item, source: "local" as const }))
-    const merged = scope === "native" ? native : scope === "local" ? local : [...local, ...native.filter((entry) => !local.some((candidate) => candidate.id === entry.item.id))]
+    const merged = scope === "native"
+      ? native
+      : scope === "local"
+        ? local
+        : [...local, ...native.filter((entry) => !local.some((candidate) => candidate.item.id === entry.item.id))]
     const normalized = query.trim().toLowerCase()
     return merged.filter(({ item }) => !normalized || [item.name, item.summary, item.type, item.categoryId, ...item.tags].join(" ").toLowerCase().includes(normalized))
   }, [localItems, nativeItems, query, scope])

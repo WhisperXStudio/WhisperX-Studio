@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "pnpm dlx eslint@10.6.0 .",
     "typecheck": "tsc --noEmit",
     "validate:registry": "node scripts/validate-registry.mjs",
     "validate:marketplace": "node scripts/validate-marketplace.mjs",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ArrowUpRight, BadgeCheck, Box, Braces, CalendarDays, Check, Download, FileCode2, PackageCheck, ShieldCheck, Star } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, BadgeCheck, Box, Braces, CalendarDays, Check, Download, FileCode2, PackageCheck, ShieldCheck, Star, type LucideIcon } from "lucide-react"
 import { MarketplaceFooter } from "@/components/marketplace/marketplace-footer"
 import { MarketplaceNav } from "@/components/marketplace/marketplace-nav"
 import { PreviewCanvas } from "@/components/marketplace/preview-canvas"
@@ -32,6 +32,12 @@ export default async function MarketplaceDetailPage({ params }: { params: Promis
   const item = getMarketplaceItem(slug)
   if (!item) notFound()
   const related = getRelatedMarketplaceItems(item)
+  const technicalSections: Array<{ title: string; values: string[]; icon: LucideIcon }> = [
+    { title: "Compatibility", values: item.compatibility, icon: PackageCheck },
+    { title: "Dependencies", values: item.dependencies.length ? item.dependencies : ["No runtime dependencies"], icon: Box },
+    { title: "Capabilities", values: item.capabilities, icon: Check },
+    { title: "Source", values: [`${item.source.kind}: ${item.source.value}`], icon: Braces },
+  ]
 
   return (
     <main className="min-h-screen bg-[color:var(--paper)]">
@@ -122,17 +128,12 @@ export default async function MarketplaceDetailPage({ params }: { params: Promis
           </div>
 
           <div className="grid gap-px bg-black/10 sm:grid-cols-2">
-            {[
-              ["Compatibility", item.compatibility, PackageCheck],
-              ["Dependencies", item.dependencies.length ? item.dependencies : ["No runtime dependencies"], Box],
-              ["Capabilities", item.capabilities, Check],
-              ["Source", [`${item.source.kind}: ${item.source.value}`], Braces],
-            ].map(([title, values, Icon]) => (
-              <article key={String(title)} className="bg-white p-6">
+            {technicalSections.map(({ title, values, icon: Icon }) => (
+              <article key={title} className="bg-white p-6">
                 <Icon className="size-4 text-[color:var(--signal)]" />
-                <h3 className="mt-6 font-display text-3xl">{String(title)}</h3>
+                <h3 className="mt-6 font-display text-3xl">{title}</h3>
                 <ul className="mt-5 space-y-2 text-sm text-foreground/50">
-                  {(values as string[]).map((value) => <li key={value} className="flex gap-2"><span className="text-[color:var(--signal)]">×</span><span>{value}</span></li>)}
+                  {values.map((value) => <li key={value} className="flex gap-2"><span className="text-[color:var(--signal)]">×</span><span>{value}</span></li>)}
                 </ul>
               </article>
             ))}
