@@ -41,8 +41,9 @@ for (const marker of cssRequirements) {
   if (!css.includes(marker)) throw new Error(`global UI system is missing ${marker}`)
 }
 
-if (!layout.includes('href="#main-content"')) throw new Error("root layout is missing skip navigation")
+if (!layout.includes('href="#page-content"')) throw new Error("root layout is missing skip navigation")
 if (!layout.includes("whisperx-theme")) throw new Error("root layout is missing theme bootstrap")
+if (!nav.includes('id="page-content"')) throw new Error("navigation is missing the post-header skip target")
 if (!nav.includes("usePathname")) throw new Error("navigation does not expose active route context")
 if (!nav.includes("aria-current")) throw new Error("navigation does not expose aria-current")
 if (!nav.includes("ThemeToggle")) throw new Error("navigation is missing the theme control")
