@@ -75,7 +75,13 @@ export const viewport: Viewport = {
 
 const themeBootstrap = `
   try {
-    var theme = localStorage.getItem('whisperx-theme') === 'dark' ? 'dark' : 'light';
+    var requestedTheme = new URLSearchParams(window.location.search).get('theme');
+    var storedTheme = localStorage.getItem('whisperx-theme');
+    var theme = requestedTheme === 'dark' || requestedTheme === 'light'
+      ? requestedTheme
+      : storedTheme === 'dark'
+        ? 'dark'
+        : 'light';
     document.documentElement.classList.toggle('dark', theme === 'dark');
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
