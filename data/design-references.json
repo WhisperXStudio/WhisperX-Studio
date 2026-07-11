@@ -1,14 +1,14 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "references": [
     {
       "id": "palmer-editorial-motion",
-      "name": "Palmer-inspired Editorial Motion System",
+      "name": "Palmer Visual Reconstruction Reference",
       "sourceUrl": "https://palmer-template.framer.website/",
-      "usage": "reference-only adaptation",
+      "usage": "reference-only reconstruction using original WHISPERX code, content, components, and assets",
       "copiedCode": false,
       "copiedAssets": false,
-      "scope": "all WHISPERX routes and shared product surfaces",
+      "scope": "home, marketplace, design intelligence, studio, import, library, preview, export, install, shared navigation, shared footer, and responsive catalog surfaces",
       "principles": {
         "composition": [
           "large typographic statements",
@@ -16,37 +16,45 @@
           "split information rails",
           "alternating light and dark stages",
           "asymmetric project and capability layouts",
-          "high-contrast closing section"
+          "high-contrast closing section",
+          "hero metadata and quick-link rails",
+          "image-like product compositions built from original CSS surfaces"
         ],
         "typography": [
-          "tight grotesk display typography",
-          "serif editorial accents",
-          "monospace operational metadata",
+          "Inter Tight display typography",
+          "Instrument Serif editorial accents",
+          "JetBrains Mono operational metadata",
           "oversized responsive headlines",
-          "controlled tracking and line height"
+          "controlled tracking and compressed line height"
         ],
         "motion": [
+          "Motion for React 12.42.2",
           "rolling navigation labels",
-          "intersection-based section reveals",
-          "route-level soft transitions",
-          "measured card depth",
-          "controlled marquee rhythm",
+          "scroll-linked hero composition",
+          "viewport-based section reveals",
+          "layout animation for catalog filtering",
+          "shared active navigation indicators",
+          "spring hover interactions",
           "reduced-motion fallback"
         ],
         "surface": [
           "paper-like light theme",
           "ink-black feature stages",
-          "subtle noise",
-          "pointer-responsive ambient light",
-          "signal red with coral, cobalt, violet, and acid accents"
+          "subtle noise and grid texture",
+          "coral, cobalt, violet, and acid spatial accents",
+          "high-depth product surfaces without copied external imagery"
         ]
       },
       "implementation": {
-        "globalCss": "app/palmer-system.css",
-        "motionRuntime": "components/system/palmer-motion-system.tsx",
-        "layout": "app/layout.tsx",
+        "globalFoundation": "app/palmer-system.css",
+        "visualParity": "app/palmer-parity.css",
+        "marketplaceComposition": "app/palmer-marketplace.css",
+        "homeExperience": "components/palmer/palmer-home-experience.tsx",
+        "marketplaceHero": "components/palmer/palmer-marketplace-hero.tsx",
+        "moduleHero": "components/palmer/palmer-module-hero.tsx",
         "navigation": "components/marketplace/marketplace-nav.tsx",
         "footer": "components/marketplace/marketplace-footer.tsx",
+        "catalog": "components/marketplace/catalog-browser.tsx",
         "validation": "scripts/validate-ui-system.mjs"
       },
       "status": "CONNECTED"
