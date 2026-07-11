@@ -8,15 +8,38 @@ For any task that changes UI structure, visual design, typography, color, layout
 
 - `.codex/skills/ui-ux-pro-max/SKILL.md`
 - `data/ui-ux-pro-max.json`
+- `data/design-references.json`
 
 Use `lib/design-intelligence.ts` when an inspectable product-specific design recommendation is useful.
+
+## System-wide visual direction
+
+The active WHISPERX visual system is an original Palmer-inspired editorial motion adaptation applied across every route through:
+
+- `app/palmer-system.css`
+- `components/system/palmer-motion-system.tsx`
+- `app/layout.tsx`
+- shared navigation and footer components
+
+Use the reference for design principles only. Do not copy external source code, proprietary assets, project imagery, names, or page text. Preserve WHISPERX product truth, routes, accessibility, and safe-install behavior.
+
+Required characteristics:
+
+- tight grotesk display typography with serif editorial accents;
+- numbered sections and split information rails;
+- alternating paper, color, and ink-black stages;
+- rolling navigation text and measured reveal motion;
+- asymmetric composition with clear operational metadata;
+- visible keyboard focus, 44px targets, dark fallback, and reduced motion.
 
 ## Product truth
 
 - Marketplace catalog source: `data/marketplace-catalog.json`
 - Studio registry source: `data/whisperx-registry.json`
 - Design intelligence source: `data/ui-ux-pro-max.json`
+- Design reference registry: `data/design-references.json`
 - Global CSS and semantic tokens: `app/globals.css`
+- Editorial motion layer: `app/palmer-system.css`
 - UI UX recommendation route: `/design-intelligence`
 - Runtime API: `/api/design-intelligence`
 
