@@ -1,0 +1,37 @@
+name: One-time Palmer lint repair
+
+on:
+  push:
+    branches: [rebuild/palmer-visual-parity]
+    paths:
+      - .github/workflows/fix-palmer-lint.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rebuild/palmer-visual-parity
+          fetch-depth: 0
+      - name: Remove unused icon imports
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('components/palmer/palmer-home-experience.tsx')
+          text = path.read_text()
+          for line in ['  BadgeCheck,\n', '  Download,\n', '  ShieldCheck,\n']:
+              text = text.replace(line, '')
+          path.write_text(text)
+          PY
+      - name: Commit repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add components/palmer/palmer-home-experience.tsx
+          git commit -m "fix: remove unused Palmer icon imports"
+          git push origin HEAD:rebuild/palmer-visual-parity
