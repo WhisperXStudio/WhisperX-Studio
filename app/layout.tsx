@@ -75,15 +75,18 @@ export const viewport: Viewport = {
 
 const themeBootstrap = `
   try {
-    var requestedTheme = new URLSearchParams(window.location.search).get('theme');
+    var params = new URLSearchParams(window.location.search);
+    var requestedTheme = params.get('theme');
     var storedTheme = localStorage.getItem('whisperx-theme');
     var theme = requestedTheme === 'dark' || requestedTheme === 'light'
       ? requestedTheme
       : storedTheme === 'dark'
         ? 'dark'
         : 'light';
+    var reducedMotion = params.get('motion') === 'reduce';
     document.documentElement.classList.toggle('dark', theme === 'dark');
     document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.reducedMotion = reducedMotion ? 'reduce' : 'auto';
     document.documentElement.style.colorScheme = theme;
   } catch (_) {}
 `
