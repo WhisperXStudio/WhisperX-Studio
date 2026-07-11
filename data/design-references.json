@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "references": [
+    {
+      "id": "palmer-editorial-motion",
+      "name": "Palmer-inspired Editorial Motion System",
+      "sourceUrl": "https://palmer-template.framer.website/",
+      "usage": "reference-only adaptation",
+      "copiedCode": false,
+      "copiedAssets": false,
+      "scope": "all WHISPERX routes and shared product surfaces",
+      "principles": {
+        "composition": [
+          "large typographic statements",
+          "numbered editorial sections",
+          "split information rails",
+          "alternating light and dark stages",
+          "asymmetric project and capability layouts",
+          "high-contrast closing section"
+        ],
+        "typography": [
+          "tight grotesk display typography",
+          "serif editorial accents",
+          "monospace operational metadata",
+          "oversized responsive headlines",
+          "controlled tracking and line height"
+        ],
+        "motion": [
+          "rolling navigation labels",
+          "intersection-based section reveals",
+          "route-level soft transitions",
+          "measured card depth",
+          "controlled marquee rhythm",
+          "reduced-motion fallback"
+        ],
+        "surface": [
+          "paper-like light theme",
+          "ink-black feature stages",
+          "subtle noise",
+          "pointer-responsive ambient light",
+          "signal red with coral, cobalt, violet, and acid accents"
+        ]
+      },
+      "implementation": {
+        "globalCss": "app/palmer-system.css",
+        "motionRuntime": "components/system/palmer-motion-system.tsx",
+        "layout": "app/layout.tsx",
+        "navigation": "components/marketplace/marketplace-nav.tsx",
+        "footer": "components/marketplace/marketplace-footer.tsx",
+        "validation": "scripts/validate-ui-system.mjs"
+      },
+      "status": "CONNECTED"
+    }
+  ]
+}
