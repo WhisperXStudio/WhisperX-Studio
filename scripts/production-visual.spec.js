@@ -10,22 +10,23 @@ const detailSlug = catalog.items?.[0]?.slug
 
 if (!detailSlug) throw new Error("Marketplace catalog does not contain a detail slug")
 
-const captures = [
-  ["home-desktop-1440", "/", 1440, 1000],
-  ["marketplace-desktop-1440", "/marketplace", 1440, 1000],
-  ["marketplace-detail-desktop-1440", `/marketplace/${detailSlug}`, 1440, 1000],
-  ["design-intelligence-desktop-1440", "/design-intelligence", 1440, 1000],
-  ["import-desktop-1440", "/import", 1440, 1000],
-  ["library-desktop-1440", "/library", 1440, 1000],
-  ["preview-desktop-1440", "/preview", 1440, 1000],
-  ["export-desktop-1440", "/export", 1440, 1000],
-  ["install-desktop-1440", "/install", 1440, 1000],
-  ["studio-desktop-1440", "/studio", 1440, 1000],
-  ["home-laptop-1280", "/", 1280, 800],
-  ["home-tablet-landscape-1024", "/", 1024, 768],
-  ["home-tablet-portrait-768", "/", 768, 1024],
-  ["home-mobile-390", "/", 390, 844],
-  ["home-mobile-320", "/", 320, 700],
+const routes = [
+  ["home", "/"],
+  ["marketplace", "/marketplace"],
+  ["marketplace-detail", `/marketplace/${detailSlug}`],
+  ["design-intelligence", "/design-intelligence"],
+  ["import", "/import"],
+  ["library", "/library"],
+  ["preview", "/preview"],
+  ["export", "/export"],
+  ["install", "/install"],
+  ["studio", "/studio"],
+]
+
+const requiredViewports = [
+  ["desktop-1440", 1440, 1000],
+  ["tablet-768", 768, 1024],
+  ["mobile-390", 390, 844],
 ]
 
 async function settleViewport(page) {
@@ -36,16 +37,28 @@ async function settleViewport(page) {
     const maximum = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
     for (let position = 0; position < maximum; position += distance) {
       window.scrollTo({ top: position, behavior: "instant" })
-      await wait(90)
+      await wait(80)
     }
     window.scrollTo({ top: maximum, behavior: "instant" })
-    await wait(220)
+    await wait(180)
     window.scrollTo({ top: 0, behavior: "instant" })
-    await wait(160)
+    await wait(140)
   })
 }
 
-async function capture(browser, { name, route, width, height, colorScheme = "light", reducedMotion = "no-preference" }) {
+function withQuery(route, query) {
+  return `${route}${route.includes("?") ? "&" : "?"}${query}`
+}
+
+async function capture(browser, {
+  name,
+  route,
+  width,
+  height,
+  colorScheme = "light",
+  reducedMotion = "no-preference",
+  textZoom = false,
+}) {
   const context = await browser.newContext({
     viewport: { width, height },
     colorScheme,
@@ -60,7 +73,20 @@ async function capture(browser, { name, route, width, height, colorScheme = "lig
   expect(response, `Missing HTTP response for ${route}`).not.toBeNull()
   expect(response.status(), `Unexpected status for ${route}`).toBeLessThan(400)
 
+  if (textZoom) {
+    await page.evaluate(() => {
+      document.documentElement.style.fontSize = "200%"
+    })
+  }
+
   await settleViewport(page)
+
+  const horizontalOverflow = await page.evaluate(() => (
+    Math.max(document.documentElement.scrollWidth, document.body.scrollWidth)
+      - document.documentElement.clientWidth
+  ))
+  expect(horizontalOverflow, `Horizontal overflow detected for ${name}`).toBeLessThanOrEqual(2)
+
   await page.screenshot({
     path: path.join(outputDirectory, `${name}.png`),
     fullPage: true,
@@ -71,21 +97,52 @@ async function capture(browser, { name, route, width, height, colorScheme = "lig
   await context.close()
 }
 
-test("capture system-wide production evidence", async ({ browser }) => {
-  test.setTimeout(180_000)
+test("capture full system production evidence", async ({ browser }) => {
+  test.setTimeout(360_000)
+  fs.rmSync(outputDirectory, { recursive: true, force: true })
   fs.mkdirSync(outputDirectory, { recursive: true })
 
-  for (const [name, route, width, height] of captures) {
-    await capture(browser, { name, route, width, height })
+  for (const [routeName, route] of routes) {
+    for (const [viewportName, width, height] of requiredViewports) {
+      await capture(browser, {
+        name: `${routeName}-${viewportName}`,
+        route,
+        width,
+        height,
+      })
+    }
   }
 
   await capture(browser, {
-    name: "home-dark-1440",
-    route: "/?theme=dark",
-    width: 1440,
-    height: 1000,
-    colorScheme: "dark",
+    name: "home-laptop-1280",
+    route: "/",
+    width: 1280,
+    height: 800,
   })
+
+  await capture(browser, {
+    name: "home-tablet-landscape-1024",
+    route: "/",
+    width: 1024,
+    height: 768,
+  })
+
+  await capture(browser, {
+    name: "home-mobile-320",
+    route: "/",
+    width: 320,
+    height: 700,
+  })
+
+  for (const [routeName, route] of routes) {
+    await capture(browser, {
+      name: `${routeName}-dark-1440`,
+      route: withQuery(route, "theme=dark"),
+      width: 1440,
+      height: 1000,
+      colorScheme: "dark",
+    })
+  }
 
   await capture(browser, {
     name: "home-reduced-motion-1440",
@@ -95,8 +152,16 @@ test("capture system-wide production evidence", async ({ browser }) => {
     reducedMotion: "reduce",
   })
 
+  await capture(browser, {
+    name: "home-text-zoom-200-1440",
+    route: "/",
+    width: 1440,
+    height: 1000,
+    textZoom: true,
+  })
+
   const screenshots = fs.readdirSync(outputDirectory).filter((file) => file.endsWith(".png"))
-  expect(screenshots).toHaveLength(17)
+  expect(screenshots).toHaveLength(45)
   for (const screenshot of screenshots) {
     const size = fs.statSync(path.join(outputDirectory, screenshot)).size
     expect(size, `${screenshot} is unexpectedly small`).toBeGreaterThan(10_000)
