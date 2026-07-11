@@ -9,6 +9,7 @@ import "./palmer-parity.css"
 import "./palmer-marketplace.css"
 import "./palmer-detail.css"
 import "./production-polish.css"
+import "./production-reduced-motion.css"
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
