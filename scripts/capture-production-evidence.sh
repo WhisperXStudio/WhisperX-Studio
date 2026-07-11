@@ -44,13 +44,11 @@ capture() {
   local name="$1"
   local url="$2"
   local viewport="$3"
-  shift 3
   $PLAYWRIGHT screenshot \
     --browser chromium \
     --viewport-size="$viewport" \
     --wait-for-timeout=800 \
     --full-page \
-    "$@" \
     "$BASE_URL$url" \
     "$OUTPUT_DIR/$name.png"
 }
@@ -71,7 +69,7 @@ capture "home-tablet-portrait-768" "/" "768,1024"
 capture "home-mobile-390" "/" "390,844"
 capture "home-mobile-320" "/" "320,700"
 capture "home-dark-1440" "/?theme=dark" "1440,1000"
-capture "home-reduced-motion-1440" "/" "1440,1000" --reduced-motion=reduce
+capture "home-reduced-motion-1440" "/?motion=reduce" "1440,1000"
 
 node --input-type=module - <<'NODE'
 import fs from 'node:fs'
