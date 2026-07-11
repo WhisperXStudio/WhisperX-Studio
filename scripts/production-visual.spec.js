@@ -33,16 +33,26 @@ async function settleViewport(page) {
   await page.waitForLoadState("networkidle")
   await page.evaluate(async () => {
     const wait = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration))
-    const distance = Math.max(Math.floor(window.innerHeight * 0.65), 360)
-    const maximum = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
-    for (let position = 0; position < maximum; position += distance) {
-      window.scrollTo({ top: position, behavior: "instant" })
-      await wait(80)
+    const landmarks = Array.from(document.querySelectorAll("section, main > div, footer"))
+
+    for (const landmark of landmarks) {
+      landmark.scrollIntoView({ block: "center", behavior: "instant" })
+      await wait(75)
     }
-    window.scrollTo({ top: maximum, behavior: "instant" })
-    await wait(180)
+
+    for (let pass = 0; pass < 3; pass += 1) {
+      const distance = Math.max(Math.floor(window.innerHeight * 0.65), 360)
+      const maximum = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
+      for (let position = 0; position < maximum; position += distance) {
+        window.scrollTo({ top: position, behavior: "instant" })
+        await wait(65)
+      }
+      window.scrollTo({ top: maximum, behavior: "instant" })
+      await wait(180)
+    }
+
     window.scrollTo({ top: 0, behavior: "instant" })
-    await wait(140)
+    await wait(180)
   })
 }
 
@@ -98,7 +108,7 @@ async function capture(browser, {
 }
 
 test("capture full system production evidence", async ({ browser }) => {
-  test.setTimeout(360_000)
+  test.setTimeout(480_000)
   fs.rmSync(outputDirectory, { recursive: true, force: true })
   fs.mkdirSync(outputDirectory, { recursive: true })
 
