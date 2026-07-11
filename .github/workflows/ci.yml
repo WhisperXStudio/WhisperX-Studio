@@ -14,9 +14,9 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate and build
+    name: Validate, build, and render
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -91,6 +91,14 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Capture production render evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          bash scripts/capture-production-evidence.sh 2>&1 | tee production-render.log
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
       - name: Upload validation evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -106,5 +114,8 @@ jobs:
             ui-system.log
             production-polish.log
             build.log
+            production-runtime.log
+            production-render.log
+            artifacts/full-html/system-production-polish-v1/production-screenshots/*.png
           if-no-files-found: ignore
           retention-days: 7
