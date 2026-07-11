@@ -164,9 +164,10 @@ test("capture full system production evidence", async ({ browser }) => {
 
   await capture(browser, {
     name: "home-text-zoom-200-1440",
-    route: "/",
+    route: "/?motion=reduce",
     width: 1440,
     height: 1000,
+    reducedMotion: "reduce",
     textZoom: true,
   })
 
