@@ -11,7 +11,8 @@
     "validate:registry": "node scripts/validate-registry.mjs",
     "validate:marketplace": "node scripts/validate-marketplace.mjs",
     "validate:design-lock": "node scripts/validate-design-lock.mjs",
-    "validate": "pnpm typecheck && pnpm lint && pnpm validate:registry && pnpm validate:marketplace && pnpm validate:design-lock",
+    "validate:design-intelligence": "node scripts/validate-design-intelligence.mjs",
+    "validate": "pnpm typecheck && pnpm lint && pnpm validate:registry && pnpm validate:marketplace && pnpm validate:design-lock && pnpm validate:design-intelligence",
     "ci": "pnpm validate && pnpm build"
   },
   "dependencies": {

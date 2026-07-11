@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": {
+    "name": "UI/UX Pro Max",
+    "version": "2.6.2",
+    "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "commit": "3da52ff1cab1be91848072ec1be5f493d730fd5f",
+    "license": "MIT",
+    "integrationMode": "pinned-agent-skill-with-curated-runtime-adapter"
+  },
+  "profiles": [
+    {
+      "id": "digital-marketplace",
+      "name": "Digital Systems Marketplace",
+      "keywords": ["digital marketplace", "component marketplace", "templates", "skills", "agents", "install", "export", "gallery", "developer tools"],
+      "patternId": "feature-rich-marketplace",
+      "styleIds": ["swiss-modernism-2", "editorial-grid", "exaggerated-minimalism"],
+      "paletteId": "signal-paper",
+      "typographyId": "editorial-technical",
+      "effects": ["editorial reveal", "controlled marquee", "metadata hover", "responsive preview transitions"],
+      "avoid": ["generic SaaS dashboard", "equal card wall", "purple AI gradient", "excessive pills", "decorative glass everywhere"],
+      "checklist": ["Search and taxonomy remain visible", "List and detail share one data source", "Preview exposes viewport and theme states", "Install shows files and conflicts before write"]
+    },
+    {
+      "id": "ecommerce",
+      "name": "E-commerce",
+      "keywords": ["ecommerce", "e-commerce", "shop", "store", "product", "checkout", "cart", "catalog", "commerce"],
+      "patternId": "conversion-commerce",
+      "styleIds": ["exaggerated-minimalism", "editorial-grid", "soft-ui-evolution"],
+      "paletteId": "commerce-neutral",
+      "typographyId": "commerce-modern",
+      "effects": ["product image crossfade", "fast add-to-cart feedback", "sticky purchase summary"],
+      "avoid": ["hidden price", "hover-only actions", "slow decorative animation", "unclear stock state"],
+      "checklist": ["Primary purchase action is obvious", "Price and license are visible", "Mobile checkout targets are at least 44px", "Loading and error states are explicit"]
+    },
+    {
+      "id": "saas",
+      "name": "SaaS Product",
+      "keywords": ["saas", "software", "subscription", "platform", "workflow", "automation", "productivity"],
+      "patternId": "product-demo-proof",
+      "styleIds": ["swiss-modernism-2", "soft-ui-evolution", "bento-system"],
+      "paletteId": "saas-clear",
+      "typographyId": "product-sans",
+      "effects": ["guided product demo", "progressive disclosure", "subtle state transitions"],
+      "avoid": ["feature overload above fold", "fake metrics", "ambiguous CTA", "overuse of gradients"],
+      "checklist": ["Value proposition is specific", "Product proof appears early", "Pricing language is consistent", "Keyboard focus is visible"]
+    },
+    {
+      "id": "ai-builder",
+      "name": "AI Builder",
+      "keywords": ["ai builder", "agent", "copilot", "generator", "prompt", "orchestrator", "design intelligence", "code generation"],
+      "patternId": "interactive-product-demo",
+      "styleIds": ["ai-native", "editorial-grid", "dimensional-layering"],
+      "paletteId": "ai-professional",
+      "typographyId": "editorial-technical",
+      "effects": ["streaming progress", "step transitions", "inspectable reasoning summary", "preview handoff"],
+      "avoid": ["fake connected status", "unbounded chat layout", "neon purple default", "hidden generated files", "instant success without validation"],
+      "checklist": ["Generated output is inspectable", "Simulation is labeled", "Failures expose recovery actions", "User approval precedes file writes"]
+    },
+    {
+      "id": "government-service",
+      "name": "Government Digital Service",
+      "keywords": ["government", "public service", "citizen", "agency", "official", "e-service", "ราชการ", "บริการประชาชน"],
+      "patternId": "trust-and-authority",
+      "styleIds": ["accessible-ethical", "swiss-modernism-2", "flat-system"],
+      "paletteId": "public-trust",
+      "typographyId": "thai-government",
+      "effects": ["clear progress states", "non-blocking feedback", "reduced-motion default compatibility"],
+      "avoid": ["low contrast", "decorative motion", "jargon-heavy labels", "icon-only critical actions", "tiny Thai body text"],
+      "checklist": ["WCAG AA contrast", "Thai text remains readable at 16px or larger", "Forms use persistent labels", "Status never relies on color alone"]
+    },
+    {
+      "id": "analytics-dashboard",
+      "name": "Analytics Dashboard",
+      "keywords": ["analytics", "dashboard", "report", "metrics", "kpi", "chart", "monitoring", "business intelligence"],
+      "patternId": "executive-analytics",
+      "styleIds": ["data-dense", "swiss-modernism-2", "dimensional-layering"],
+      "paletteId": "data-neutral",
+      "typographyId": "data-readable",
+      "effects": ["cross-filter feedback", "drill-down transitions", "skeleton loading"],
+      "avoid": ["chart decoration", "color-only legends", "unbounded table width", "tiny labels", "unexplained KPI"],
+      "checklist": ["Charts include accessible labels", "Numbers use tabular figures", "Filters show active state", "Tables work with keyboard and small screens"]
+    },
+    {
+      "id": "creative-agency",
+      "name": "Creative Agency",
+      "keywords": ["agency", "creative studio", "branding", "campaign", "art direction", "portfolio", "production"],
+      "patternId": "storytelling-portfolio",
+      "styleIds": ["editorial-grid", "kinetic-typography", "anti-polish"],
+      "paletteId": "creative-ink",
+      "typographyId": "display-editorial",
+      "effects": ["project reveal", "kinetic headline", "intentional cursor response"],
+      "avoid": ["template-like card grid", "random motion", "unreadable display type", "portfolio without project context"],
+      "checklist": ["One visual idea dominates each view", "Project metadata is readable", "Motion has reduced fallback", "Mobile preserves narrative order"]
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio",
+      "keywords": ["portfolio", "personal site", "case study", "works", "designer", "developer", "photography"],
+      "patternId": "case-study-led",
+      "styleIds": ["exaggerated-minimalism", "editorial-grid", "interactive-cursor"],
+      "paletteId": "portfolio-paper",
+      "typographyId": "display-editorial",
+      "effects": ["case-study reveal", "image crop transition", "quiet hover metadata"],
+      "avoid": ["skills-only homepage", "generic project cards", "autoplay-heavy media", "hidden contact path"],
+      "checklist": ["Best work appears first", "Each project explains role and outcome", "Images reserve layout space", "Contact path is keyboard accessible"]
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "keywords": ["healthcare", "medical", "clinic", "hospital", "patient", "health", "pharmacy", "wellness"],
+      "patternId": "trust-and-authority",
+      "styleIds": ["accessible-ethical", "nature-distilled", "soft-ui-evolution"],
+      "paletteId": "health-calm",
+      "typographyId": "humanist-readable",
+      "effects": ["gentle state feedback", "step progress", "calm loading"],
+      "avoid": ["urgent red as decoration", "medical claims without context", "small controls", "complex navigation"],
+      "checklist": ["Critical information is plain language", "Errors appear beside fields", "Touch targets meet 44px minimum", "Contrast and text scaling are verified"]
+    },
+    {
+      "id": "education",
+      "name": "Education Platform",
+      "keywords": ["education", "learning", "course", "school", "student", "teacher", "training", "knowledge"],
+      "patternId": "guided-learning",
+      "styleIds": ["accessible-ethical", "bento-system", "soft-ui-evolution"],
+      "paletteId": "learning-focus",
+      "typographyId": "humanist-readable",
+      "effects": ["progress feedback", "completion microinteraction", "content skeleton"],
+      "avoid": ["gamification overload", "unclear progress", "dense text walls", "hover-only learning controls"],
+      "checklist": ["Learning progress is persistent", "Content hierarchy is scannable", "Keyboard and screen reader paths work", "Mobile reading width stays controlled"]
+    }
+  ],
+  "patterns": [
+    {"id":"feature-rich-marketplace","name":"Feature-rich Marketplace","sections":["Hero","Category signal","Featured systems","Catalog filters","Product list","Import CTA","Trust and install safety"],"primaryCta":"Browse catalog"},
+    {"id":"conversion-commerce","name":"Conversion Commerce","sections":["Product promise","Featured products","Category discovery","Social proof","Offer detail","FAQ","Purchase CTA"],"primaryCta":"Shop products"},
+    {"id":"product-demo-proof","name":"Product Demo + Proof","sections":["Value proposition","Interactive demo","Use cases","Proof","Pricing","FAQ","Start CTA"],"primaryCta":"Start building"},
+    {"id":"interactive-product-demo","name":"Interactive Product Demo","sections":["Prompt or input","Live workflow","Generated preview","Validation evidence","Capabilities","Start CTA"],"primaryCta":"Try the builder"},
+    {"id":"trust-and-authority","name":"Trust and Authority","sections":["Service purpose","Eligibility or audience","Process","Required information","Service access","Support","Official references"],"primaryCta":"Start service"},
+    {"id":"executive-analytics","name":"Executive Analytics","sections":["Global filters","KPI summary","Trend analysis","Breakdown","Exceptions","Details table","Export"],"primaryCta":"Inspect insight"},
+    {"id":"storytelling-portfolio","name":"Storytelling Portfolio","sections":["Point of view","Selected work","Project narrative","Capabilities","Process","Recognition","Contact"],"primaryCta":"View selected work"},
+    {"id":"case-study-led","name":"Case-study Led","sections":["Identity","Featured case study","Selected projects","Role and outcomes","About","Contact"],"primaryCta":"Open case study"},
+    {"id":"guided-learning","name":"Guided Learning","sections":["Learning goal","Current progress","Next lesson","Course map","Practice","Support","Continue CTA"],"primaryCta":"Continue learning"}
+  ],
+  "styles": [
+    {"id":"swiss-modernism-2","name":"Swiss Modernism 2.0","keywords":["grid","clarity","editorial","structured"],"bestFor":["marketplaces","enterprise","public services"],"light":true,"dark":true,"performance":"excellent","accessibility":"AA","effects":["precise hover","measured reveal"]},
+    {"id":"editorial-grid","name":"Editorial Grid","keywords":["magazine","asymmetry","hierarchy","large type"],"bestFor":["marketplaces","agencies","portfolios"],"light":true,"dark":true,"performance":"excellent","accessibility":"AA","effects":["masked reveal","variable composition"]},
+    {"id":"exaggerated-minimalism","name":"Exaggerated Minimalism","keywords":["large type","negative space","focused"],"bestFor":["commerce","portfolio","premium products"],"light":true,"dark":true,"performance":"excellent","accessibility":"AA","effects":["quiet transition","single focal motion"]},
+    {"id":"soft-ui-evolution","name":"Soft UI Evolution","keywords":["subtle depth","calm","premium","friendly"],"bestFor":["SaaS","healthcare","education"],"light":true,"dark":true,"performance":"good","accessibility":"AA","effects":["soft elevation","gentle hover"]},
+    {"id":"bento-system","name":"Bento System","keywords":["modular","overview","grouping"],"bestFor":["SaaS","education","feature presentation"],"light":true,"dark":true,"performance":"good","accessibility":"AA","effects":["staggered reveal","group hover"]},
+    {"id":"ai-native","name":"AI-native UI","keywords":["prompt","workflow","preview","status"],"bestFor":["AI builders","copilots","agent systems"],"light":true,"dark":true,"performance":"good","accessibility":"AA","effects":["streaming state","progress transition"]},
+    {"id":"dimensional-layering","name":"Dimensional Layering","keywords":["depth","panels","context","overlay"],"bestFor":["analytics","AI tools","complex workflows"],"light":true,"dark":true,"performance":"good","accessibility":"AA","effects":["layer transition","contextual sheet"]},
+    {"id":"accessible-ethical","name":"Accessible and Ethical","keywords":["inclusive","clear","trusted","readable"],"bestFor":["government","healthcare","education"],"light":true,"dark":true,"performance":"excellent","accessibility":"AAA-ready","effects":["non-blocking feedback","reduced motion"]},
+    {"id":"data-dense","name":"Data-dense Dashboard","keywords":["analytics","table","chart","monitoring"],"bestFor":["BI","operations","finance"],"light":true,"dark":true,"performance":"good","accessibility":"AA","effects":["filter feedback","drill-down"]},
+    {"id":"flat-system","name":"Flat System","keywords":["simple","direct","familiar"],"bestFor":["public services","mobile apps","utilities"],"light":true,"dark":true,"performance":"excellent","accessibility":"AA","effects":["state color","simple transition"]},
+    {"id":"kinetic-typography","name":"Kinetic Typography","keywords":["headline","motion","campaign"],"bestFor":["agencies","launches","editorial"],"light":true,"dark":true,"performance":"moderate","accessibility":"AA with fallback","effects":["type reveal","scroll-linked emphasis"]},
+    {"id":"anti-polish","name":"Anti-polish Raw","keywords":["raw","experimental","art direction"],"bestFor":["creative studios","artists","culture"],"light":true,"dark":true,"performance":"excellent","accessibility":"AA when controlled","effects":["hard cut","raw hover"]},
+    {"id":"interactive-cursor","name":"Interactive Cursor","keywords":["cursor","portfolio","creative"],"bestFor":["desktop portfolios","creative work"],"light":true,"dark":true,"performance":"moderate","accessibility":"requires pointer fallback","effects":["cursor label","magnetic target"]},
+    {"id":"nature-distilled","name":"Nature Distilled","keywords":["calm","organic","wellness"],"bestFor":["healthcare","wellness","sustainability"],"light":true,"dark":false,"performance":"excellent","accessibility":"AA","effects":["soft fade","organic divider"]}
+  ],
+  "palettes": [
+    {"id":"signal-paper","name":"Signal Paper","primary":"#D92D20","secondary":"#18181B","accent":"#B42318","background":"#F8F5EE","surface":"#FFFFFF","foreground":"#18181B","muted":"#E8E3DA","notes":"Warm paper with controlled signal red."},
+    {"id":"commerce-neutral","name":"Commerce Neutral","primary":"#111827","secondary":"#475569","accent":"#DC2626","background":"#F8FAFC","surface":"#FFFFFF","foreground":"#111827","muted":"#E2E8F0","notes":"Product-first neutral palette."},
+    {"id":"saas-clear","name":"SaaS Clear","primary":"#1D4ED8","secondary":"#0F172A","accent":"#0F766E","background":"#F8FAFC","surface":"#FFFFFF","foreground":"#0F172A","muted":"#E2E8F0","notes":"Clear and professional without AI-gradient clichés."},
+    {"id":"ai-professional","name":"AI Professional","primary":"#C2410C","secondary":"#18181B","accent":"#0369A1","background":"#FAFAF9","surface":"#FFFFFF","foreground":"#18181B","muted":"#E7E5E4","notes":"Technical palette with warm execution signal."},
+    {"id":"public-trust","name":"Public Trust","primary":"#1D4ED8","secondary":"#0F172A","accent":"#047857","background":"#F8FAFC","surface":"#FFFFFF","foreground":"#111827","muted":"#E2E8F0","notes":"Accessible government and public-service palette."},
+    {"id":"data-neutral","name":"Data Neutral","primary":"#0F766E","secondary":"#1E293B","accent":"#B45309","background":"#F8FAFC","surface":"#FFFFFF","foreground":"#0F172A","muted":"#CBD5E1","notes":"Charts and tables retain strong semantic contrast."},
+    {"id":"creative-ink","name":"Creative Ink","primary":"#E11D48","secondary":"#111827","accent":"#2563EB","background":"#F5F2EA","surface":"#FFFFFF","foreground":"#111111","muted":"#DDD6CC","notes":"Editorial warmth with vivid project signals."},
+    {"id":"portfolio-paper","name":"Portfolio Paper","primary":"#18181B","secondary":"#52525B","accent":"#DC2626","background":"#FAF7F0","surface":"#FFFFFF","foreground":"#18181B","muted":"#E7E1D7","notes":"Quiet paper field for image-led work."},
+    {"id":"health-calm","name":"Health Calm","primary":"#0F766E","secondary":"#334155","accent":"#2563EB","background":"#F7FAF9","surface":"#FFFFFF","foreground":"#0F172A","muted":"#DCEAE6","notes":"Calm and clinical without feeling cold."},
+    {"id":"learning-focus","name":"Learning Focus","primary":"#4338CA","secondary":"#1E293B","accent":"#C2410C","background":"#F8FAFC","surface":"#FFFFFF","foreground":"#0F172A","muted":"#E0E7FF","notes":"Focused learning palette with clear progress signals."}
+  ],
+  "typography": [
+    {"id":"editorial-technical","name":"Editorial Technical","heading":"Instrument Serif","body":"Instrument Sans","mono":"JetBrains Mono","mood":["editorial","technical","premium"],"bestFor":["marketplaces","AI builders","studios"]},
+    {"id":"commerce-modern","name":"Commerce Modern","heading":"Manrope","body":"Inter","mono":"IBM Plex Mono","mood":["direct","clean","commercial"],"bestFor":["commerce","catalogs"]},
+    {"id":"product-sans","name":"Product Sans","heading":"Space Grotesk","body":"Inter","mono":"JetBrains Mono","mood":["modern","product","precise"],"bestFor":["SaaS","developer tools"]},
+    {"id":"thai-government","name":"Thai Government Readable","heading":"Noto Sans Thai","body":"Noto Sans Thai","mono":"Noto Sans Mono","mood":["official","readable","inclusive"],"bestFor":["government","Thai services"]},
+    {"id":"data-readable","name":"Data Readable","heading":"IBM Plex Sans","body":"Inter","mono":"IBM Plex Mono","mood":["analytical","dense","clear"],"bestFor":["analytics","tables","reports"]},
+    {"id":"display-editorial","name":"Display Editorial","heading":"Newsreader","body":"Manrope","mono":"JetBrains Mono","mood":["art-directed","expressive","readable"],"bestFor":["agencies","portfolios"]},
+    {"id":"humanist-readable","name":"Humanist Readable","heading":"Source Sans 3","body":"Source Sans 3","mono":"IBM Plex Mono","mood":["friendly","accessible","calm"],"bestFor":["healthcare","education"]}
+  ],
+  "rules": [
+    {"priority":1,"category":"Accessibility","severity":"CRITICAL","checks":["Normal text contrast at least 4.5:1","Visible keyboard focus","Accessible names for icon buttons","Logical heading order"],"avoid":["Removing focus rings","Color-only status","Placeholder-only labels"]},
+    {"priority":2,"category":"Touch and Interaction","severity":"CRITICAL","checks":["Primary targets at least 44px","At least 8px between touch targets","Immediate press feedback","No hover-only primary action"],"avoid":["Tiny icon targets","Gesture-only critical action","Unlabeled destructive action"]},
+    {"priority":3,"category":"Performance","severity":"HIGH","checks":["Image dimensions reserve space","Below-fold media is lazy","Motion uses transform and opacity","Heavy surfaces are route split"],"avoid":["Animating width or height","Unbounded client bundles","Layout shift"]},
+    {"priority":4,"category":"Style Selection","severity":"HIGH","checks":["Style matches product type","One icon language","Light and dark are designed together","One primary CTA per view"],"avoid":["Random style mixing","Emoji as interface icons","Decorative blur without purpose"]},
+    {"priority":5,"category":"Layout and Responsive","severity":"HIGH","checks":["Mobile-first composition","No horizontal overflow","Consistent breakpoints","Readable line length"],"avoid":["Fixed-width mobile layout","Nested scroll traps","Hidden core content on mobile"]},
+    {"priority":6,"category":"Typography and Color","severity":"MEDIUM","checks":["Body text at least 16px on mobile","Semantic color tokens","Tabular figures for metrics","Body line height 1.5 or greater"],"avoid":["Raw hex repeated in components","Body copy below 12px","Gray text on gray surface"]},
+    {"priority":7,"category":"Animation","severity":"MEDIUM","checks":["Microinteractions use 150-300ms","Motion communicates state","Reduced-motion is supported","One or two focal animations per view"],"avoid":["Decorative continuous motion","Transitions above 500ms","Motion without cleanup"]},
+    {"priority":8,"category":"Forms and Feedback","severity":"MEDIUM","checks":["Persistent labels","Errors beside fields","Loading disables duplicate submit","Recovery action is clear"],"avoid":["Errors only at page top","Silent failure","Placeholder as label"]},
+    {"priority":9,"category":"Navigation","severity":"HIGH","checks":["Predictable back behavior","Active location is visible","Deep routes are linkable","Mobile navigation remains focused"],"avoid":["Overloaded navigation","Broken browser back","Hidden primary sections"]},
+    {"priority":10,"category":"Data Visualization","severity":"LOW","checks":["Legend and tooltip labels","Accessible color pairs","Text or table fallback","Chart type matches question"],"avoid":["Color-only series","Decorative 3D charts","Pie charts with many slices"]}
+  ],
+  "stacks": [
+    {"id":"nextjs","name":"Next.js","checks":["Prefer Server Components for static data","Keep client boundaries small","Use metadata APIs","Validate dynamic route params"]},
+    {"id":"react","name":"React","checks":["Stable keys","Effect cleanup","Avoid derived state duplication","Accessible component states"]},
+    {"id":"tailwind","name":"Tailwind CSS","checks":["Use semantic CSS variables","Keep class composition consistent","Preserve responsive variants","Avoid arbitrary values when tokens exist"]},
+    {"id":"shadcn","name":"shadcn/ui and Radix","checks":["Preserve focus management","Keep dialog titles and descriptions","Use Slot safely","Expose accessible labels"]},
+    {"id":"html-tailwind","name":"HTML and Tailwind","checks":["Semantic landmarks","Correct form labels","No disabled zoom","Progressive enhancement"]}
+  ]
+}
