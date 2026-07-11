@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import "./palmer-system.css"
 import "./palmer-parity.css"
+import "./palmer-marketplace.css"
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
