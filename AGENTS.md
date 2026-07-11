@@ -2,11 +2,12 @@
 
 This repository is a production e-marketplace and build studio for digital systems, components, marketing modules, galleries, design systems, skills, preview, export, and safe local installation.
 
-## Mandatory artifact-first gate
+## Mandatory artifact-first and production-polish gates
 
-Before any user-visible design, redesign, page, module, component-system, typography, color, layout, motion, responsive, visual-reference, or production-polish work, read and obey:
+Before any user-visible design, redesign, page, module, component-system, typography, color, layout, motion, responsive, visual-reference, or production-polish work, read and obey both:
 
 - `WHISPERX_ARTIFACT_FULL_HTML_FIRST_LOCK.md`
+- `WHISPERX_PRODUCTION_READY_SYSTEM_POLISH_LOCK.md`
 
 The required workflow is:
 
@@ -14,9 +15,12 @@ The required workflow is:
 REFERENCE / REQUIREMENT REVIEW
 → FULL STANDALONE HTML ARTIFACT
 → RENDERED DESKTOP / TABLET / MOBILE INSPECTION
+→ STATE / THEME / MOTION / ACCESSIBILITY REVIEW
 → ARTIFACT PASS
-→ PRODUCTION IMPLEMENTATION
+→ SYSTEM-WIDE PRODUCTION IMPLEMENTATION
+→ FUNCTIONAL VALIDATION
 → PRODUCTION-TO-ARTIFACT COMPARISON
+→ PRODUCTION POLISH RELEASE RESULT
 ```
 
 Create each artifact under:
@@ -24,12 +28,20 @@ Create each artifact under:
 ```text
 artifacts/full-html/<work-slug>/index.html
 artifacts/full-html/<work-slug>/ARTIFACT_REPORT.md
+artifacts/full-html/<work-slug>/STATE_MATRIX.md
+artifacts/full-html/<work-slug>/COMPONENT_INVENTORY.md
 artifacts/full-html/<work-slug>/screenshots/
 ```
 
-Do not edit production UI first. Do not call a CSS overlay, isolated hero, wireframe, generic card grid, or component demo a completed redesign. Do not claim visual parity without rendered comparison evidence.
+Do not edit production UI first. Do not call a CSS overlay, isolated hero, wireframe, generic card grid, or component demo a completed redesign. Do not claim visual parity or production readiness without rendered comparison evidence.
 
-If rendering or screenshot capture is unavailable, report `NOT VISUALLY VERIFIED` and do not claim matching design.
+A system-wide request requires review of every relevant route, shared component, theme, responsive mode, interaction state, loading state, empty state, error state, permission state, motion mode, and accessibility condition defined by the production-polish lock.
+
+If rendering or screenshot capture is unavailable, report exactly:
+
+```text
+NOT VISUALLY VERIFIED — PRODUCTION READINESS CANNOT BE CLAIMED
+```
 
 ## Required skill routing
 
@@ -84,9 +96,12 @@ Do not create disconnected duplicate data models when an existing source can be 
 4. Do not add a package when the same result can be implemented with current dependencies.
 5. Keep client component boundaries small.
 6. Use semantic tokens and accessible interaction states.
-7. Validate mobile, tablet, desktop, keyboard, light mode, dark fallback, and reduced motion for UI work.
+7. Validate narrow mobile, mobile, tablet portrait, tablet landscape, laptop, desktop, keyboard, light mode, dark fallback, reduced motion, long content, zero data, many data, loading, empty, error, blocked, and permission conditions for UI work.
 8. Create and pass the full standalone HTML artifact before production UI implementation.
 9. Compare the production render against the approved artifact before claiming completion.
-10. Run `pnpm validate` and `pnpm build` before claiming engineering completion.
-11. Do not suppress type, lint, schema, or build failures.
-12. Do not write user files without explicit browser permission and a visible write plan.
+10. Review all relevant routes when the request says system-wide, all modules, every page, or full polish.
+11. Run `pnpm validate` and `pnpm build` before claiming engineering completion.
+12. Do not suppress type, lint, schema, test, runtime, or build failures.
+13. Do not write user files without explicit browser permission and a visible write plan.
+14. A successful build alone does not equal production readiness.
+15. Use the exact production-polish classification defined in `WHISPERX_PRODUCTION_READY_SYSTEM_POLISH_LOCK.md`.
