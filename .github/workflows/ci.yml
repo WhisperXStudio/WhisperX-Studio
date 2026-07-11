@@ -77,6 +77,12 @@ jobs:
           set -o pipefail
           pnpm validate:ui-system 2>&1 | tee ui-system.log
 
+      - name: Validate production polish
+        shell: bash
+        run: |
+          set -o pipefail
+          pnpm validate:production-polish 2>&1 | tee production-polish.log
+
       - name: Production build
         shell: bash
         run: |
@@ -98,6 +104,7 @@ jobs:
             design-lock.log
             design-intelligence.log
             ui-system.log
+            production-polish.log
             build.log
           if-no-files-found: ignore
           retention-days: 7
