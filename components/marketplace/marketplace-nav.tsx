@@ -1,13 +1,14 @@
 import Link from "next/link"
-import { ArrowUpRight, Box, Download, Import, Search } from "lucide-react"
+import { ArrowUpRight, Box, BrainCircuit, Download, Import, MonitorSmartphone, Search, type LucideIcon } from "lucide-react"
 
-const navItems = [
-  { href: "/marketplace", label: "Market" },
-  { href: "/library", label: "Library" },
-  { href: "/import", label: "Import" },
-  { href: "/preview", label: "Preview" },
-  { href: "/export", label: "Export" },
-  { href: "/install", label: "Install" },
+const navItems: Array<{ href: string; label: string; icon: LucideIcon }> = [
+  { href: "/marketplace", label: "Market", icon: Search },
+  { href: "/design-intelligence", label: "Design AI", icon: BrainCircuit },
+  { href: "/library", label: "Library", icon: Box },
+  { href: "/import", label: "Import", icon: Import },
+  { href: "/preview", label: "Preview", icon: MonitorSmartphone },
+  { href: "/export", label: "Export", icon: Download },
+  { href: "/install", label: "Install", icon: Box },
 ]
 
 export function MarketplaceNav() {
@@ -34,23 +35,20 @@ export function MarketplaceNav() {
           <Link href="/marketplace#catalog" className="grid size-9 place-items-center border border-black/10 text-foreground/55 transition hover:border-[color:var(--signal)] hover:text-[color:var(--signal)]" aria-label="Search marketplace">
             <Search className="size-4" />
           </Link>
-          <Link href="/import" className="hidden items-center gap-2 border border-black/10 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/65 transition hover:border-[color:var(--signal)] hover:text-[color:var(--signal)] sm:flex">
-            <Import className="size-3.5" /> Import
+          <Link href="/design-intelligence" className="hidden items-center gap-2 border border-black/10 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/65 transition hover:border-[color:var(--signal)] hover:text-[color:var(--signal)] sm:flex">
+            <BrainCircuit className="size-3.5" /> Design AI
           </Link>
           <Link href="/library" className="flex items-center gap-2 bg-foreground px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-background transition hover:bg-[color:var(--signal)] hover:text-white">
             <Box className="size-3.5" /> Library <ArrowUpRight className="size-3.5" />
           </Link>
         </div>
       </div>
-      <div className="flex border-t border-black/5 lg:hidden">
-        {navItems.slice(0, 5).map((item, index) => {
-          const Icon = index === 2 ? Import : index === 4 ? Download : Box
-          return (
-            <Link key={item.href} href={item.href} className="flex flex-1 items-center justify-center gap-1.5 border-r border-black/5 py-3 font-mono text-[8px] uppercase tracking-[0.12em] text-foreground/45 last:border-r-0">
-              <Icon className="size-3" /> {item.label}
-            </Link>
-          )
-        })}
+      <div className="flex overflow-x-auto border-t border-black/5 lg:hidden">
+        {navItems.slice(0, 6).map(({ href, label, icon: Icon }) => (
+          <Link key={href} href={href} className="flex min-w-[92px] flex-1 items-center justify-center gap-1.5 border-r border-black/5 py-3 font-mono text-[8px] uppercase tracking-[0.12em] text-foreground/45 last:border-r-0">
+            <Icon className="size-3" /> {label}
+          </Link>
+        ))}
       </div>
     </header>
   )
