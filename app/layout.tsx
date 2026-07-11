@@ -72,8 +72,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
       <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        <a href="#main-content" className="skip-link">Skip to main content</a>
-        <div id="main-content" tabIndex={-1}>{children}</div>
+        <a href="#page-content" className="skip-link">Skip to main content</a>
+        {children}
         <Analytics />
       </body>
     </html>
