@@ -180,6 +180,12 @@
     cursor: pointer;
   }
 
+  button[aria-label],
+  a[aria-label] {
+    min-width: var(--control-height);
+    min-height: var(--control-height);
+  }
+
   input,
   select,
   textarea {
@@ -400,6 +406,18 @@
   .mobile-nav-strip > * {
     scroll-snap-align: start;
   }
+}
+
+[class*='text-[7px]'],
+[class*='text-[8px]'],
+[class*='text-[9px]'] {
+  font-size: 0.6875rem !important;
+  line-height: 1.35 !important;
+}
+
+[class*='text-[10px]'] {
+  font-size: 0.75rem !important;
+  line-height: 1.4 !important;
 }
 
 .dark [class~='bg-white'] {
