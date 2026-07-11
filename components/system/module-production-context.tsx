@@ -83,7 +83,7 @@ const contexts: Record<ModuleKind, ContextItem[]> = {
 
 export function ModuleProductionContext({ kind }: { kind: ModuleKind }) {
   return (
-    <div className="production-context-shell">
+    <div className="production-system-meta">
       <ProductionReadinessBand items={contexts[kind]} label={`${kind} production context`} />
     </div>
   )
