@@ -4,10 +4,13 @@ This repository is a production e-marketplace and build studio for digital syste
 
 ## Mandatory artifact-first and production-polish gates
 
-Before any user-visible design, redesign, page, module, component-system, typography, color, layout, motion, responsive, visual-reference, or production-polish work, read and obey both:
+Before any user-visible design, redesign, page, module, component-system, typography, color, layout, motion, responsive, visual-reference, or production-polish work, read and obey all three:
 
 - `WHISPERX_ARTIFACT_FULL_HTML_FIRST_LOCK.md`
 - `WHISPERX_PRODUCTION_READY_SYSTEM_POLISH_LOCK.md`
+- `WHISPERX_ENGINEERING_MERGE_AND_VISUAL_RELEASE_GATE_AMENDMENT.md`
+
+The amendment takes precedence where an older merge or stop condition conflicts with the separated engineering-merge and visual-release gates.
 
 The required workflow is:
 
@@ -18,8 +21,10 @@ REFERENCE / REQUIREMENT REVIEW
 → STATE / THEME / MOTION / ACCESSIBILITY REVIEW
 → ARTIFACT PASS
 → SYSTEM-WIDE PRODUCTION IMPLEMENTATION
-→ FUNCTIONAL VALIDATION
-→ PRODUCTION-TO-ARTIFACT COMPARISON
+→ ENGINEERING VALIDATION
+→ ENGINEERING MERGE GATE
+→ PRODUCTION-TO-ARTIFACT COMPARISON WHEN RENDERING IS AVAILABLE
+→ VISUAL RELEASE GATE
 → PRODUCTION POLISH RELEASE RESULT
 ```
 
@@ -37,11 +42,19 @@ Do not edit production UI first. Do not call a CSS overlay, isolated hero, wiref
 
 A system-wide request requires review of every relevant route, shared component, theme, responsive mode, interaction state, loading state, empty state, error state, permission state, motion mode, and accessibility condition defined by the production-polish lock.
 
-If rendering or screenshot capture is unavailable, report exactly:
+When production rendering is unavailable because of a verified external blocker, engineering work may merge only after the amendment's complete engineering merge gate passes. Report exactly:
 
 ```text
-NOT VISUALLY VERIFIED — PRODUCTION READINESS CANNOT BE CLAIMED
+ENGINEERING MERGE PASS — MERGE PERMITTED, PRODUCTION VISUAL VERIFICATION PENDING
 ```
+
+The release status must still include:
+
+```text
+NOT PRODUCTION-READY — REQUIRED VISUAL VALIDATION REMAINS INCOMPLETE
+```
+
+A normal merge does not equal a visual pass, production-polish pass, deployment, or public release.
 
 ## Required skill routing
 
@@ -98,10 +111,11 @@ Do not create disconnected duplicate data models when an existing source can be 
 6. Use semantic tokens and accessible interaction states.
 7. Validate narrow mobile, mobile, tablet portrait, tablet landscape, laptop, desktop, keyboard, light mode, dark fallback, reduced motion, long content, zero data, many data, loading, empty, error, blocked, and permission conditions for UI work.
 8. Create and pass the full standalone HTML artifact before production UI implementation.
-9. Compare the production render against the approved artifact before claiming completion.
+9. Compare the production render against the approved artifact before claiming visual completion or production readiness.
 10. Review all relevant routes when the request says system-wide, all modules, every page, or full polish.
 11. Run `pnpm validate` and `pnpm build` before claiming engineering completion.
 12. Do not suppress type, lint, schema, test, runtime, or build failures.
 13. Do not write user files without explicit browser permission and a visible write plan.
 14. A successful build alone does not equal production readiness.
-15. Use the exact production-polish classification defined in `WHISPERX_PRODUCTION_READY_SYSTEM_POLISH_LOCK.md`.
+15. A verified external rendering blocker may defer visual verification but may not hide engineering failures.
+16. Use the exact gate and release classifications defined by the production-polish lock and its amendment.
