@@ -4,15 +4,12 @@ import Link from "next/link"
 import {
   ArrowDownRight,
   ArrowUpRight,
-  BadgeCheck,
   Blocks,
   Box,
   Braces,
-  Download,
   Images,
   Import,
   Layers3,
-  ShieldCheck,
   Sparkles,
   Workflow,
 } from "lucide-react"
