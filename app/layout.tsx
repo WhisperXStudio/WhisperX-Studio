@@ -2,11 +2,13 @@ import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Instrument_Sans, Instrument_Serif, Inter_Tight, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { RouteExperience } from "@/components/system/route-experience"
 import "./globals.css"
 import "./palmer-system.css"
 import "./palmer-parity.css"
 import "./palmer-marketplace.css"
 import "./palmer-detail.css"
+import "./production-polish.css"
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -44,11 +46,15 @@ export const metadata: Metadata = {
   authors: [{ name: "WhisperX Studio" }],
   creator: "WhisperX Studio",
   metadataBase: new URL("https://whisperx.studio"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "WHISPERX Market",
     description: "Digital systems from source to install.",
     type: "website",
     siteName: "WHISPERX Market",
+    url: "/",
   },
   robots: {
     index: true,
@@ -64,6 +70,7 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 }
 
 const themeBootstrap = `
@@ -83,7 +90,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${interTight.variable} ${jetbrainsMono.variable} palmer-root font-sans antialiased`}>
         <a href="#page-content" className="skip-link">Skip to main content</a>
-        {children}
+        <RouteExperience />
+        <div id="page-content" tabIndex={-1}>
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>
