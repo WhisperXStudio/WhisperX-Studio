@@ -1,1 +1,2 @@
+/* global document, window, innerHeight, scrollY */
 const buttons=[...document.querySelectorAll('.grid footer button')];const bag=document.querySelector('.bag span');let count=0;buttons.forEach((button)=>button.addEventListener('click',()=>{count+=1;bag.textContent=String(count);button.textContent='Added ✓';button.disabled=true;}));window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.progress').style.width=`${Math.max(0,Math.min(100,scrollY/max*100))}%`;},{passive:true});
