@@ -1,52 +1,52 @@
-import fs from 'node:fs'
+import fs from "node:fs"
 
-const css = fs.readFileSync('app/globals.css', 'utf8')
-const layout = fs.readFileSync('app/layout.tsx', 'utf8')
-const marketplace = fs.readFileSync('app/marketplace/page.tsx', 'utf8')
-const marketplaceHero = fs.readFileSync('components/palmer/palmer-marketplace-hero.tsx', 'utf8')
-const catalogBrowser = fs.readFileSync('components/marketplace/catalog-browser.tsx', 'utf8')
-const catalog = JSON.parse(fs.readFileSync('data/marketplace-catalog.json', 'utf8'))
-const supportingDesign = JSON.parse(fs.readFileSync('global-tw4-master.v7.full-spec.json', 'utf8'))
+const systemCss = fs.readFileSync("app/artyverse-system.css", "utf8")
+const layout = fs.readFileSync("app/layout.tsx", "utf8")
+const experience = fs.readFileSync("components/artyverse/artyverse-experience-system.tsx", "utf8")
+const motion = fs.readFileSync("lib/artyverse/motion-system.ts", "utf8")
+const catalog = JSON.parse(fs.readFileSync("data/marketplace-catalog.json", "utf8"))
 
 const requiredTokens = [
-  '--background',
-  '--foreground',
-  '--paper',
-  '--paper-warm',
-  '--paper-cool',
-  '--surface-raised',
-  '--signal',
-  '--signal-soft',
-  '--font-display',
-  '--font-mono',
+  "--av-canvas: #07080b",
+  "--av-text: #f7f7f7",
+  "--av-lime: #c6ff00",
+  "--av-pink: #ff2db7",
+  "--av-cyan: #30ebda",
+  "--av-violet: #8c5cff",
+  "--av-grid-columns: 12",
+  "--av-instant: 120ms",
+  "--av-cinematic: 1200ms",
 ]
 
-const requiredUtilities = [
-  '.paper-grid',
-  '.architectural-shadow',
-  '.signal-line',
-  '.reveal-up',
-  '@media (prefers-reduced-motion: reduce)',
+const requiredSystemMarkers = [
+  ".artyverse-container",
+  ".artyverse-grid",
+  ".av-control",
+  ".av-button--primary",
+  ".av-card",
+  ".av-orbit-field",
+  "@media (max-width: 1023px)",
+  "@media (max-width: 767px)",
+  "@media (prefers-reduced-motion: reduce)",
 ]
 
-for (const token of requiredTokens) {
-  if (!css.includes(token)) throw new Error(`missing design token ${token}`)
+for (const marker of [...requiredTokens, ...requiredSystemMarkers]) {
+  if (!systemCss.includes(marker)) throw new Error(`ARTYVERSE design system is missing ${marker}`)
 }
 
-for (const utility of requiredUtilities) {
-  if (!css.includes(utility)) throw new Error(`missing design utility ${utility}`)
+const motionFamilies = ["orbit", "snap", "squish", "float", "warp", "mischief", "reward", "lock"]
+for (const family of motionFamilies) {
+  if (!motion.includes(`${family}:`)) throw new Error(`ARTYVERSE motion contract is missing ${family}`)
 }
 
-if (!css.includes(':root {')) throw new Error('light theme root is missing')
-if (!css.includes('.dark {')) throw new Error('dark fallback theme is missing')
-if (!layout.includes('colorScheme: "light dark"')) throw new Error('layout color scheme does not expose light and dark support')
-if (!layout.includes('import "./palmer-parity.css"')) throw new Error('Palmer parity design layer is not loaded')
-if (!layout.includes('import "./palmer-marketplace.css"')) throw new Error('Palmer marketplace design layer is not loaded')
-if (!marketplace.includes('<PalmerMarketplaceHero')) throw new Error('reconstructed marketplace hero is not connected to the route')
-if (!marketplaceHero.includes('WHISPERX / DIGITAL SYSTEMS MARKET')) throw new Error('marketplace editorial identity marker is missing')
-if (!marketplace.includes('<CatalogBrowser')) throw new Error('marketplace catalog browser is not connected to the route')
-if (!catalogBrowser.includes('Digital systems market')) throw new Error('catalog browser identity marker is missing')
-if (!Array.isArray(catalog.categories) || !Array.isArray(catalog.items)) throw new Error('marketplace catalog cannot drive the design surfaces')
-if (!supportingDesign.id || !supportingDesign.version) throw new Error('supporting global design reference is invalid JSON')
+if (!layout.includes("Sora")) throw new Error("Sora display typography is not connected")
+if (!layout.includes("Inter")) throw new Error("Inter body typography is not connected")
+if (!layout.includes("Space_Mono")) throw new Error("Space Mono data typography is not connected")
+if (!layout.includes("Noto_Sans_Thai")) throw new Error("Thai typography fallback is not connected")
+if (!layout.includes('import "./artyverse-system.css"')) throw new Error("ARTYVERSE system layer is not loaded")
+if (!layout.includes("<ArtyverseExperienceSystem>")) throw new Error("ARTYVERSE route experience is not connected")
+if (!experience.includes('from "motion/react"')) throw new Error("ARTYVERSE motion runtime is missing")
+if (!experience.includes('window.addEventListener("offline"')) throw new Error("Offline capability status is missing")
+if (!Array.isArray(catalog.categories) || !Array.isArray(catalog.items)) throw new Error("Marketplace catalog cannot drive ARTYVERSE surfaces")
 
-console.log(`design-system-ok light-default dark-fallback palmer-parity categories=${catalog.categories.length} items=${catalog.items.length}`)
+console.log(`artyverse-design-system-ok grid=12/8/4 motion=${motionFamilies.length} categories=${catalog.categories.length} items=${catalog.items.length}`)
