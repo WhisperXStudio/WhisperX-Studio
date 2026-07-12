@@ -205,6 +205,6 @@ export function normalizeImportedMarketplaceItem(input: {
   }
 }
 
-export function serializeMarketplaceItem(item: MarketplaceItem): string {
-  return JSON.stringify({ schemaVersion: "2.0.0", exportedAt: new Date().toISOString(), item }, null, 2)
+export function serializeMarketplaceItem(item: MarketplaceItem, exportedAt = item.updatedAt): string {
+  return JSON.stringify({ schemaVersion: "2.0.0", exportedAt, item }, null, 2)
 }
