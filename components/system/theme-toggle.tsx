@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 
-const STORAGE_KEY = "whisperx-theme"
-
+const STORAGE_KEY = "artyverse-theme"
 type Theme = "light" | "dark"
 
 function applyTheme(theme: Theme) {
@@ -15,12 +14,12 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light")
+  const [theme, setTheme] = useState<Theme>("dark")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY)
-    const nextTheme: Theme = stored === "dark" ? "dark" : "light"
+    const nextTheme: Theme = stored === "light" ? "light" : "dark"
     applyTheme(nextTheme)
     setTheme(nextTheme)
     setMounted(true)
@@ -41,7 +40,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={isDark}
-      className="grid size-11 shrink-0 place-items-center border border-black/10 bg-[color:var(--surface-raised)] text-foreground/60 transition hover:border-[color:var(--signal)] hover:text-[color:var(--signal)] disabled:opacity-50"
+      className="av-control grid size-11 shrink-0 place-items-center border border-[color:color-mix(in_srgb,var(--av-text)_14%,transparent)] bg-[color:var(--av-surface-1)] text-[color:var(--av-text-muted)] hover:border-[color:var(--av-lime)] hover:text-[color:var(--av-lime)] disabled:opacity-50"
       disabled={!mounted}
     >
       {isDark ? <Sun className="size-4" aria-hidden="true" /> : <Moon className="size-4" aria-hidden="true" />}
