@@ -61,7 +61,7 @@ export function VerseExperience({ items }: { items: MarketplaceItem[] }) {
 
   function saveItem(item: MarketplaceItem) {
     setSaved((current) => current.includes(item.id) ? current : [...current, item.id])
-    setAnnouncement(`${item.name} added to the Verse shortlist`)
+    setAnnouncement(`${item.name} added to the ARTYVERSE shortlist`)
   }
 
   return (
@@ -71,38 +71,38 @@ export function VerseExperience({ items }: { items: MarketplaceItem[] }) {
       <main className={styles.root}>
         <section className={styles.hero}>
           <motion.div className={styles.heroCopy} initial={reduce ? false : { opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <p className={styles.eyebrow}><i /> WHISPERX VERSE / PRODUCTION EXPERIENCE</p>
-            <h1>Build the<br /><em>unexpected.</em></h1>
-            <p className={styles.lead}>The supplied ARTYVERSE X kit is now adapted into WHISPERX as a reusable discovery, motion and campaign layer—without shipping a second brand or duplicating marketplace data.</p>
-            <div className={styles.actions}><VerseAction href="#discover">Enter the verse</VerseAction><VerseAction href="/marketplace" secondary>Open marketplace</VerseAction></div>
-            <div className={styles.proof}><div><strong>{items.length}</strong><span>live systems</span></div><div><strong>8</strong><span>state families</span></div><div><strong>44px</strong><span>minimum targets</span></div></div>
+            <p className={styles.eyebrow}><i /> ARTYVERSE X / IMMERSIVE CAMPAIGN</p>
+            <h1>Find the<br /><em>unexpected.</em></h1>
+            <p className={styles.lead}>ARTYVERSE X is the campaign and experimental layer of ARTYVERSE—built for memorable discovery while marketplace price, stock, seller trust and checkout remain authoritative and clear.</p>
+            <div className={styles.actions}><VerseAction href="#discover">Enter the campaign</VerseAction><VerseAction href="/marketplace" secondary>Open marketplace</VerseAction></div>
+            <div className={styles.proof}><div><strong>{items.length}</strong><span>live products</span></div><div><strong>8</strong><span>state families</span></div><div><strong>44px</strong><span>minimum targets</span></div></div>
           </motion.div>
-          <motion.div className={styles.heroVisual} style={{ y: heroY }}><VerseOrbitPortal /><div className={`${styles.badge} ${styles.badgeOne}`}>Orbit says: suspiciously polished.</div><div className={`${styles.badge} ${styles.badgeTwo}`}>SOURCE / VERIFIED</div></motion.div>
+          <motion.div className={styles.heroVisual} style={{ y: heroY }}><VerseOrbitPortal /><div className={`${styles.badge} ${styles.badgeOne}`}>Orbit says: suspiciously collectible.</div><div className={`${styles.badge} ${styles.badgeTwo}`}>SOURCE / VERIFIED</div></motion.div>
         </section>
 
-        <section className={styles.ticker} aria-hidden="true"><div>CURATED SYSTEMS ✦ VERIFIED SOURCES ✦ SAFE INSTALL ✦ MOTION WITH PURPOSE ✦ CURATED SYSTEMS ✦ VERIFIED SOURCES ✦ SAFE INSTALL ✦</div></section>
+        <section className={styles.ticker} aria-hidden="true"><div>CURATED PRODUCTS ✦ VERIFIED SELLERS ✦ AUTHENTICITY SIGNALS ✦ MOTION WITH PURPOSE ✦ CURATED PRODUCTS ✦ VERIFIED SELLERS ✦</div></section>
 
         <section className={styles.section}>
-          <header className={styles.sectionHead}><div><p className={styles.eyebrow}>FEATURED RELEASE</p><h2>Catch a system before the idea moves on.</h2></div><p>Campaign energy is grounded in actual catalog status. No fake stock, forced countdown or invented urgency is introduced.</p></header>
+          <header className={styles.sectionHead}><div><p className={styles.eyebrow}>FEATURED DROP</p><h2>Catch the strange thing that feels exactly right.</h2></div><p>Campaign energy is grounded in actual catalog status. No fake stock, forced countdown or invented urgency is introduced.</p></header>
           <motion.div className={styles.reactor} initial={reduce ? false : { opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.2 }}>
-            <div className={styles.reactorCopy}><span className={styles.chip}>READY TO PREVIEW</span><h3>Signal<br />Market OS</h3><p>Typed catalog · preview · export · permission-gated install.</p><div className={styles.reactorStats}><span><b>10</b>ROUTES</span><span><b>08</b>STATES</span><span><b>03</b>MODES</span></div><VerseAction href="/preview">Inspect system</VerseAction></div>
+            <div className={styles.reactorCopy}><span className={styles.chip}>READY TO DISCOVER</span><h3>Creator<br />Drop Orbit</h3><p>Verified seller · real availability · clear purchase limits.</p><div className={styles.reactorStats}><span><b>10</b>ROUTES</span><span><b>08</b>STATES</span><span><b>03</b>MODES</span></div><VerseAction href="/marketplace">Inspect drop</VerseAction></div>
             <VerseOrbitPortal /><small>No forced countdown. No invented stock.</small>
           </motion.div>
         </section>
 
         <section id="discover" className={styles.section}>
-          <header className={styles.sectionHead}><div><p className={styles.eyebrow}>DISCOVER</p><h2>Pick your kind of build.</h2></div><div className={styles.tabs} aria-label="Verse system filter">{(["all", "design-system", "motion", "component"] as Filter[]).map((value) => <button key={value} type="button" aria-pressed={filter === value} onClick={() => setFilter(value)}>{value === "all" ? "All" : value.replace("-", " ")}</button>)}</div></header>
-          <div className={styles.resultBar} aria-live="polite"><span>{visible.length} systems</span><span>{saved.length} shortlisted</span></div>
+          <header className={styles.sectionHead}><div><p className={styles.eyebrow}>DISCOVER</p><h2>Pick your kind of collectible.</h2></div><div className={styles.tabs} aria-label="ARTYVERSE product filter">{(["all", "design-system", "motion", "component"] as Filter[]).map((value) => <button key={value} type="button" aria-pressed={filter === value} onClick={() => setFilter(value)}>{value === "all" ? "All" : value.replace("-", " ")}</button>)}</div></header>
+          <div className={styles.resultBar} aria-live="polite"><span>{visible.length} products</span><span>{saved.length} shortlisted</span></div>
           <motion.div layout className={styles.grid}><AnimatePresence mode="popLayout">{visible.slice(0, 8).map((item, index) => <VerseCapsule key={item.id} item={item} index={index} onSave={saveItem} />)}</AnimatePresence></motion.div>
-          {!visible.length && <div className={styles.empty}><Search aria-hidden="true" /><h3>No systems match this filter.</h3><button type="button" onClick={() => setFilter("all")}>Reset filter</button></div>}
+          {!visible.length && <div className={styles.empty}><Search aria-hidden="true" /><h3>No products match this filter.</h3><button type="button" onClick={() => setFilter("all")}>Reset filter</button></div>}
         </section>
 
         <section className={`${styles.section} ${styles.story}`}>
-          <div className={styles.storyCard}><div className={styles.mascot}><div className={styles.face}><i /><i /><b>⌣</b></div></div><div><p className={styles.eyebrow}>THE ADAPTATION</p><h2>Playful energy. WHISPERX product truth.</h2><p>Orbit, capsules, campaign reactor and tactile actions now work as WHISPERX experience components. The existing catalog, library, preview, export and install flows remain authoritative.</p><div className={styles.trust}><ShieldCheck aria-hidden="true" /><span>No legacy ARTVERSE artwork or copied product naming is shipped.</span></div></div></div>
-          <div className={styles.steps}>{[["01", "Artifact first", "The supplied full HTML is adapted and reviewed before production mapping."], ["02", "Token mapping", "Neon energy maps to WHISPERX semantic states and accessible contrast."], ["03", "Route integration", "Verse is connected to shared navigation and real marketplace routes."]].map(([number, title, body]) => <article key={number}><b>{number}</b><h3>{title}</h3><p>{body}</p><Check aria-hidden="true" /></article>)}</div>
+          <div className={styles.storyCard}><div className={styles.mascot}><div className={styles.face}><i /><i /><b>⌣</b></div></div><div><p className={styles.eyebrow}>THE CAMPAIGN ROLE</p><h2>Playful energy. ARTYVERSE product truth.</h2><p>Orbit, capsules, Drop Reactor and tactile actions form the immersive ARTYVERSE X layer. The ARTYVERSE marketplace, seller trust, cart, checkout, payment, order and verification states remain the authoritative product experience.</p><div className={styles.trust}><ShieldCheck aria-hidden="true" /><span>Legacy naming and copied product identity are not shipped.</span></div></div></div>
+          <div className={styles.steps}>{[["01", "Campaign first frame", "A static first frame communicates the drop before JavaScript or motion runs."], ["02", "Token mapping", "Neon energy maps to locked ARTYVERSE tokens and accessible contrast."], ["03", "Commerce integrity", "Campaign actions resolve into real marketplace and checkout routes."]].map(([number, title, body]) => <article key={number}><b>{number}</b><h3>{title}</h3><p>{body}</p><Check aria-hidden="true" /></article>)}</div>
         </section>
 
-        <section className={styles.final}><p className={styles.eyebrow}><Sparkles aria-hidden="true" /> VERSE EXPERIENCE</p><h2>One system.<br />A louder memory.</h2><VerseAction href="/studio">Launch Studio</VerseAction></section>
+        <section className={styles.final}><p className={styles.eyebrow}><Sparkles aria-hidden="true" /> ARTYVERSE X</p><h2>One marketplace.<br />A louder memory.</h2><VerseAction href="/marketplace">Enter ARTYVERSE</VerseAction></section>
       </main>
     </MotionConfig>
   )
