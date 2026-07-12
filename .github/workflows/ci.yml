@@ -21,6 +21,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Extract ARTYVERSE implementation pack
+        shell: bash
+        run: |
+          rm -rf .audit/artyverse-spec
+          mkdir -p .audit/artyverse-spec
+          unzip -q docs/ARTYVERSE_X_SPEC_IMPLEMENTATION_PACK_v1.2.zip -d .audit/artyverse-spec
+          find .audit/artyverse-spec -maxdepth 3 -type f | sort | tee artyverse-spec-files.log
+
+      - name: Upload ARTYVERSE specification audit source
+        uses: actions/upload-artifact@v4
+        with:
+          name: artyverse-spec-pack-expanded
+          path: |
+            .audit/artyverse-spec/**
+            artyverse-spec-files.log
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
