@@ -1,9 +1,18 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
-import { Instrument_Sans, Instrument_Serif, Inter_Tight, JetBrains_Mono } from "next/font/google"
+import {
+  Instrument_Sans,
+  Instrument_Serif,
+  Inter,
+  Inter_Tight,
+  JetBrains_Mono,
+  Sora,
+  Space_Mono,
+} from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { RouteExperience } from "@/components/system/route-experience"
 import "./globals.css"
+import "./artyverse-tokens.css"
 import "./palmer-system.css"
 import "./palmer-parity.css"
 import "./palmer-marketplace.css"
@@ -36,25 +45,44 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+})
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
   title: {
-    default: "WHISPERX Market — Digital Systems Marketplace",
-    template: "%s — WHISPERX Market",
+    default: "ARTYVERSE — Creator Marketplace",
+    template: "%s — ARTYVERSE",
   },
-  description: "A production-grade marketplace for marketing systems, galleries, components, design kits, skills, agents, preview, export, and safe project installation.",
-  applicationName: "WHISPERX Market",
-  keywords: ["digital marketplace", "components", "templates", "design systems", "AI skills", "developer tools"],
-  authors: [{ name: "WhisperX Studio" }],
-  creator: "WhisperX Studio",
-  metadataBase: new URL("https://whisperx.studio"),
+  description: "A multi-vendor marketplace for digital products, verified collectibles, creator drops and limited editions.",
+  applicationName: "ARTYVERSE",
+  keywords: ["creator marketplace", "digital products", "collectibles", "limited drops", "verified sellers"],
+  authors: [{ name: "ARTYVERSE" }],
+  creator: "ARTYVERSE",
+  metadataBase: new URL("https://artyverse.example"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "WHISPERX Market",
-    description: "Digital systems from source to install.",
+    title: "ARTYVERSE",
+    description: "Find the strange thing that feels exactly right.",
     type: "website",
-    siteName: "WHISPERX Market",
+    siteName: "ARTYVERSE",
     url: "/",
   },
   robots: {
@@ -65,8 +93,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f6f0" },
-    { media: "(prefers-color-scheme: dark)", color: "#0c0c0e" },
+    { media: "(prefers-color-scheme: light)", color: "#F7F7F7" },
+    { media: "(prefers-color-scheme: dark)", color: "#07080B" },
   ],
   colorScheme: "light dark",
   width: "device-width",
@@ -78,7 +106,7 @@ const themeBootstrap = `
   try {
     var params = new URLSearchParams(window.location.search);
     var requestedTheme = params.get('theme');
-    var storedTheme = localStorage.getItem('whisperx-theme');
+    var storedTheme = localStorage.getItem('artyverse-theme') || localStorage.getItem('whisperx-theme');
     var theme = requestedTheme === 'dark' || requestedTheme === 'light'
       ? requestedTheme
       : storedTheme === 'dark'
@@ -98,7 +126,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${interTight.variable} ${jetbrainsMono.variable} palmer-root font-sans antialiased`}>
+      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${interTight.variable} ${jetbrainsMono.variable} ${sora.variable} ${inter.variable} ${spaceMono.variable} palmer-root font-sans antialiased`}>
         <a href="#page-content" className="skip-link">Skip to main content</a>
         <RouteExperience />
         <div id="page-content" tabIndex={-1}>
