@@ -2,12 +2,13 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ArrowUpRight, Box, BrainCircuit, Download, FolderDown, Import, MonitorSmartphone, Search, type LucideIcon } from "lucide-react"
+import { ArrowUpRight, Box, BrainCircuit, Download, FolderDown, Import, MonitorSmartphone, Search, Sparkles, type LucideIcon } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
 import { ThemeToggle } from "@/components/system/theme-toggle"
 
 const navItems: Array<{ href: string; label: string; shortLabel: string; icon: LucideIcon }> = [
   { href: "/marketplace", label: "Marketplace", shortLabel: "Market", icon: Search },
+  { href: "/verse", label: "Verse Experience", shortLabel: "Verse", icon: Sparkles },
   { href: "/design-intelligence", label: "Design Intelligence", shortLabel: "Design", icon: BrainCircuit },
   { href: "/library", label: "Library", shortLabel: "Library", icon: Box },
   { href: "/import", label: "Import", shortLabel: "Import", icon: Import },

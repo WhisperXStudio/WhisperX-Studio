@@ -14,8 +14,16 @@ const requiredFiles = [
   "artifacts/full-html/system-production-polish-v1/screenshots/light.png",
   "artifacts/full-html/system-production-polish-v1/screenshots/dark.png",
   "artifacts/full-html/system-production-polish-v1/screenshots/reduced-motion.png",
+  "artifacts/full-html/artyverse-x-integration-v1/index.html",
+  "artifacts/full-html/artyverse-x-integration-v1/styles.css",
+  "artifacts/full-html/artyverse-x-integration-v1/app.js",
+  "artifacts/full-html/artyverse-x-integration-v1/ARTIFACT_REPORT.md",
+  "artifacts/full-html/artyverse-x-integration-v1/STATE_MATRIX.md",
+  "artifacts/full-html/artyverse-x-integration-v1/COMPONENT_INVENTORY.md",
   "components/system/production-state.tsx",
   "components/system/route-experience.tsx",
+  "components/verse/verse-experience.tsx",
+  "components/verse/verse.module.css",
   "app/production-polish.css",
   "app/loading.tsx",
   "app/error.tsx",
@@ -34,12 +42,16 @@ const css = fs.readFileSync("app/production-polish.css", "utf8")
 const library = fs.readFileSync("components/marketplace/local-library.tsx", "utf8")
 const install = fs.readFileSync("components/marketplace/install-center.tsx", "utf8")
 const artifact = fs.readFileSync("artifacts/full-html/system-production-polish-v1/ARTIFACT_REPORT.md", "utf8")
+const verseArtifact = fs.readFileSync("artifacts/full-html/artyverse-x-integration-v1/ARTIFACT_REPORT.md", "utf8")
+const verse = fs.readFileSync("components/verse/verse-experience.tsx", "utf8")
+const nav = fs.readFileSync("components/marketplace/marketplace-nav.tsx", "utf8")
 
 const requiredRoutes = [
   "app/page.tsx",
   "app/marketplace/page.tsx",
   "app/marketplace/[slug]/page.tsx",
   "app/design-intelligence/page.tsx",
+  "app/verse/page.tsx",
   "app/import/page.tsx",
   "app/library/page.tsx",
   "app/preview/page.tsx",
@@ -65,6 +77,10 @@ const assertions = [
   [install.includes("InstallProgress"), "install progress evidence is missing"],
   [install.includes("downloadRecoveryManifest"), "install recovery manifest is missing"],
   [artifact.includes("ARTIFACT PASS"), "artifact has not passed its gate"],
+  [verseArtifact.includes("ARTIFACT PASS"), "Verse integration artifact has not passed its gate"],
+  [verse.includes('from "motion/react"'), "Verse motion integration is missing"],
+  [verse.includes("getMarketplaceItems") === false, "Verse client component must receive existing catalog data instead of creating a duplicate catalog"],
+  [nav.includes('href: "/verse"'), "Verse route is not exposed in shared navigation"],
 ]
 
 for (const [passes, message] of assertions) {
@@ -76,4 +92,4 @@ for (const path of requiredFiles.filter((file) => file.endsWith(".png"))) {
   if (size < 1_000) throw new Error(`render evidence is unexpectedly small: ${path}`)
 }
 
-console.log(`production-polish-ok routes=${requiredRoutes.length} evidence=${requiredFiles.length} states=8`)
+console.log(`production-polish-ok routes=${requiredRoutes.length} evidence=${requiredFiles.length} states=8 verse=integrated`)
